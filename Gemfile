@@ -26,6 +26,7 @@ end
 
 group :test do
   gem 'cucumber-rails', require: false
+  gem 'shoulda-matchers'
 end
 
 group :staging, :production do
