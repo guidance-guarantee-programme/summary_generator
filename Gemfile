@@ -24,3 +24,7 @@ end
 group :test do
   gem 'cucumber-rails', require: false
 end
+
+group :staging, :production do
+  gem 'rails_12factor'
+end
