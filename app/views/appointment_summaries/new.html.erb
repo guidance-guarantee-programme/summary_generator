@@ -6,7 +6,7 @@
   </ul>
 <% end %>
 
-<%= form_for @appointment_summary, url: appointment_summaries_path do |f| %>
+<%= form_for @appointment_summary, url: appointment_summaries_path(format: :pdf) do |f| %>
   <div class="l-form-row">
     <%= f.label :name %>
     <%= f.text_field :name, class: 't-name' %>

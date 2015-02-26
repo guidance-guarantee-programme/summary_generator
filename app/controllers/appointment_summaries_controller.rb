@@ -5,7 +5,13 @@ class AppointmentSummariesController < ApplicationController
 
   def create
     @appointment_summary = AppointmentSummary.new(appointment_summary_params)
-    render :new
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'pension_wise', encoding: 'utf-8'
+      end
+    end
   end
 
   private
