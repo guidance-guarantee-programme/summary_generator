@@ -1,7 +1,8 @@
 class AppointmentSummary
   include ActiveModel::Model
 
-  attr_accessor :name, :date_of_appointment, :value_of_pension_pots
+  attr_accessor :name, :date_of_appointment,
+                :value_of_pension_pots, :income_in_retirement
 
   def date_of_appointment
     Date.parse(@date_of_appointment) rescue @date_of_appointment
@@ -12,4 +13,5 @@ class AppointmentSummary
                                                 on_or_after: Date.new(2015),
                                                 type: :date }
   validates :value_of_pension_pots, presence: true, numericality: true
+  validates :income_in_retirement, inclusion: { in: %w(pension other) }
 end
