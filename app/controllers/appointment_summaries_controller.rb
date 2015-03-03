@@ -23,6 +23,7 @@ class AppointmentSummariesController < ApplicationController
     params
       .require(:appointment_summary)
       .permit(:name, :date_of_appointment,
-              :value_of_pension_pots, :income_in_retirement)
+              :value_of_pension_pots, :income_in_retirement,
+              :guider_name, :guider_organisation)
   end
 end
