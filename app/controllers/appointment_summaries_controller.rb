@@ -20,6 +20,8 @@ class AppointmentSummariesController < ApplicationController
   private
 
   def appointment_summary_params
-    params.require(:appointment_summary).permit(:name, :date_of_appointment)
+    params
+      .require(:appointment_summary)
+      .permit(:name, :date_of_appointment, :value_of_pension_pots)
   end
 end
