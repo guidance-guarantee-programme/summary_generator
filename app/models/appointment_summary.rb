@@ -3,7 +3,10 @@ class AppointmentSummary
 
   attr_accessor :name, :date_of_appointment,
                 :value_of_pension_pots, :income_in_retirement,
-                :guider_name, :guider_organisation
+                :guider_name, :guider_organisation,
+                :continue_working, :unsure, :leave_inheritance,
+                :wants_flexibility, :wants_security,
+                :wants_lump_sum, :poor_health
 
   def date_of_appointment
     Date.parse(@date_of_appointment) rescue @date_of_appointment
