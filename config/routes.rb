@@ -12,5 +12,7 @@ Rails.application.routes.draw do
 
       get '(/:action)'
     end
+
+    mount GovukAdminTemplate::Engine, at: '/style-guide'
   end
 end
