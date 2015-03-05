@@ -22,5 +22,5 @@ Then(/^a record of guidance document is created$/) do
   text = PDF::Inspector::Text.analyze(page.source).strings.join
   expect(text).to include('Joe Bloggs')
   expect(text).to include('February 5, 2015')
-  expect(text).to include('£35,000')
+  expect(text).to include('35000')
 end

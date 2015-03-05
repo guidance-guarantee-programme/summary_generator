@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <%= display_meta_tags site: 'Pension Wise', separator: '-', reverse: true %>
+<% content_for :head do %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<% end %>
 
-<div class="l-page-container">
-  <%= render 'shared/alerts' %>
-  <%= yield %>
-</div>
+<%= content_for :app_title, 'Pension Wise Record of Guidance' %>
+<%= content_for :page_title, title %>
 
-</body>
-</html>
+<%= render 'shared/alerts' %>
+
+<%= render template: 'layouts/govuk_admin_template' %>
