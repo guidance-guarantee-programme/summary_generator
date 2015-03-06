@@ -1,6 +1,6 @@
 class AppointmentSummariesController < ApplicationController
   def new
-    @appointment_summary = AppointmentSummary.new
+    @appointment_summary = AppointmentSummary.new(date_of_appointment: DateTime.now)
   end
 
   def create
