@@ -5,6 +5,9 @@
 <%= content_for :app_title, 'Pension Wise Record of Guidance' %>
 <%= content_for :page_title, title %>
 
-<%= render 'shared/alerts' %>
+<%= content_for(:content) do %>
+  <%= render 'shared/alerts' %>
+  <%= yield %>
+<% end %>
 
 <%= render template: 'layouts/govuk_admin_template' %>
