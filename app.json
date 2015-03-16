@@ -1,0 +1,8 @@
+{
+  "env": {
+    "SECRET_KEY_BASE": {
+      "description": "Cryptographically secure secret key (typically used to generate a secret for cookie sessions)",
+      "generator": "secret"
+    }
+  }
+}
