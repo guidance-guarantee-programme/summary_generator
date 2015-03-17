@@ -19,7 +19,7 @@ Record of guidance from [Pension Wise].
 Clone the repository:
 
 ```sh
-$ git clone https://github.com/guidance-guarantee-programme/record_of_guidance.git
+$ git clone https://github.com/guidance-guarantee-programme/record_of_guidance_generator.git
 ```
 
 Setup the application:
