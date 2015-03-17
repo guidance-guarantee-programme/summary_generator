@@ -10,6 +10,7 @@ Record of guidance from [Pension Wise].
 * [Bundler]
 * [Git]
 * [Node.js][Node]
+* [PrinceXML]
 * [NPM]
 * [Ruby 2.2.1][Ruby]
 
@@ -28,6 +29,11 @@ Setup the application:
 $ ./bin/setup
 ```
 
+Download and install PrinceXML, and make sure it is available on the path. Generated PDFs will
+have a PrinceXML watermark unless you install a valid PrinceXML licence.
+
+Details on the
+[PrinceXML website][princexml].
 
 ## Usage
 
@@ -52,4 +58,5 @@ Please see the [contributing guidelines](/CONTRIBUTING.md).
 [node]: http://nodejs.org
 [npm]: https://www.npmjs.org
 [pension wise]: https://www.gov.uk/pensionwise
+[princexml]: http://www.princexml.com/
 [ruby]: http://www.ruby-lang.org/en
