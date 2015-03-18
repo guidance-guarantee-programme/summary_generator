@@ -1,7 +1,9 @@
 class AppointmentSummaryPage < SitePrism::Page
   set_url '/appointment_summaries/new'
 
-  element :name, '.t-name'
+  element :title, '.t-title'
+  element :first_name, '.t-first-name'
+  element :last_name, '.t-last-name'
   element :date_of_appointment, '.t-date-of-appointment'
   element :reference_number, '.t-reference-number'
   element :value_of_pension_pots, '.t-value-of-pension-pots'

@@ -1,7 +1,9 @@
 When(/^appointment details are captured$/) do
   page = AppointmentSummaryPage.new
   page.load
-  page.name.set 'Joe Bloggs'
+  page.title.select 'Mr'
+  page.first_name.set 'Joe'
+  page.last_name.set 'Bloggs'
   page.date_of_appointment.set '05/02/2015'
   page.reference_number.set '98212'
   page.value_of_pension_pots.set 35_000
