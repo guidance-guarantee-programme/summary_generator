@@ -10,7 +10,7 @@ require 'sprockets/railtie'
 
 Bundler.require(*Rails.groups)
 
-module RecordOfGuidanceGenerator
+module PDFOutput
   class Application < Rails::Application
   end
 end
