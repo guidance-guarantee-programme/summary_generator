@@ -3,7 +3,12 @@ require 'rails_helper'
 RSpec.describe AppointmentSummary, type: :model do
   subject { described_class.new }
 
-  it { is_expected.to validate_presence_of(:name) }
+  it { is_expected.to validate_presence_of(:title) }
+  it { is_expected.to_not validate_presence_of(:first_name) }
+  it { is_expected.to validate_presence_of(:last_name) }
+
+  it { is_expected.to allow_value('Mr').for(:title) }
+  it { is_expected.to_not allow_value('Alien').for(:title) }
 
   it { is_expected.to allow_value('2015-02-10').for(:date_of_appointment) }
   it { is_expected.to allow_value('12/02/2015').for(:date_of_appointment) }
