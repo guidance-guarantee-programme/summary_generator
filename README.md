@@ -1,8 +1,8 @@
-# Record of Guidance
+# PDF Output
 
-[![Build Status](https://travis-ci.org/guidance-guarantee-programme/record_of_guidance.svg)](https://travis-ci.org/guidance-guarantee-programme/record_of_guidance)
+[![Build Status](https://travis-ci.org/guidance-guarantee-programme/pdf_output.svg)](https://travis-ci.org/guidance-guarantee-programme/pdf_output)
 
-Record of guidance from [Pension Wise].
+Generate [Pension Wise] appointment output in PDF format only.
 
 
 ## Prerequisites
@@ -20,7 +20,7 @@ Record of guidance from [Pension Wise].
 Clone the repository:
 
 ```sh
-$ git clone https://github.com/guidance-guarantee-programme/record_of_guidance_generator.git
+$ git clone https://github.com/guidance-guarantee-programme/pdf_output.git
 ```
 
 Setup the application:
@@ -32,8 +32,7 @@ $ ./bin/setup
 Download and install PrinceXML, and make sure it is available on the path. Generated PDFs will
 have a PrinceXML watermark unless you install a valid PrinceXML licence.
 
-Details on the
-[PrinceXML website][princexml].
+Details on the [PrinceXML website][princexml].
 
 ## Usage
 
