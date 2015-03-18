@@ -1,6 +1,6 @@
 # PDF Output
 
-[![Build Status](https://travis-ci.org/guidance-guarantee-programme/pdf_output.svg)](https://travis-ci.org/guidance-guarantee-programme/pdf_output)
+[![Build Status](https://magnum.travis-ci.com/guidance-guarantee-programme/pdf_output.svg?token=Na2Zajdrgs8wscyzQfn2)](https://magnum.travis-ci.com/guidance-guarantee-programme/pdf_output)
 
 Generate [Pension Wise] appointment output in PDF format only.
 
