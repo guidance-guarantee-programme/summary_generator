@@ -28,6 +28,7 @@ class AppointmentSummariesController < ApplicationController
               :guider_name, :guider_organisation,
               :continue_working, :unsure, :leave_inheritance,
               :wants_flexibility, :wants_security,
-              :wants_lump_sum, :poor_health)
+              :wants_lump_sum, :poor_health,
+              :has_defined_contribution_pension)
   end
 end
