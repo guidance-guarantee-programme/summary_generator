@@ -39,8 +39,10 @@ Details on the [PrinceXML website][princexml].
 To start the application:
 
 ```sh
-$ ./bin/foreman s
+$ ./bin/foreman s -p <port>
 ```
+
+where <port> is the port you'd like the application to listen on.
 
 ## Heroku
 
