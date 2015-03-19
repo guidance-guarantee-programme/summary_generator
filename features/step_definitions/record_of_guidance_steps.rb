@@ -7,6 +7,7 @@ When(/^appointment details are captured$/) do
   page.date_of_appointment.set '05/02/2015'
   page.reference_number.set '98212'
   page.value_of_pension_pots.set 35_000
+  page.upper_value_of_pension_pots.set 55_000
   page.income_in_retirement_pension.set true
   page.guider_name.set 'Alex Leahy'
   page.guider_organisation_tpas.set true
@@ -26,5 +27,5 @@ Then(/^a record of guidance document is created$/) do
   text = PDF::Inspector::Text.analyze(page.source).strings.join
   expect(text).to include('Joe Bloggs')
   expect(text).to include('February 5, 2015')
-  expect(text).to include('35000')
+  expect(text).to include('£35,000')
 end
