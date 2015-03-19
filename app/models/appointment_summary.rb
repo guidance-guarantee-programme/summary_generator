@@ -10,6 +10,12 @@ class AppointmentSummary
                 :wants_lump_sum, :poor_health,
                 :has_defined_contribution_pension
 
+  %i(continue_working unsure leave_inheritance
+     wants_flexibility wants_security
+     wants_lump_sum poor_health).each do |predicate_method|
+    alias_method(:"#{predicate_method}?", predicate_method)
+  end
+
   def date_of_appointment
     Date.parse(@date_of_appointment) rescue @date_of_appointment
   end
@@ -48,4 +54,26 @@ class AppointmentSummary
   validates :guider_organisation, inclusion: { in: %w(tpas cab) }
 
   validates :has_defined_contribution_pension, inclusion: { in: %w(yes no unknown) }
+
+  def eligible_for_guidance?
+    %w(yes unknown).include?(has_defined_contribution_pension)
+  end
+
+  def generic_guidance?
+    eligible_for_guidance? && !retirement_circumstances?
+  end
+
+  def custom_guidance?
+    eligible_for_guidance? && retirement_circumstances?
+  end
+
+  private
+
+  # rubocop:disable CyclomaticComplexity
+  def retirement_circumstances?
+    continue_working? || unsure? || leave_inheritance? || \
+      wants_flexibility? || wants_security? || wants_lump_sum? || \
+      poor_health?
+  end
+  # rubocop:enable CyclomaticComplexity
 end
