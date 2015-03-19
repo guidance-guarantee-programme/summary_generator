@@ -7,7 +7,8 @@ class AppointmentSummary
                 :guider_name, :guider_organisation,
                 :continue_working, :unsure, :leave_inheritance,
                 :wants_flexibility, :wants_security,
-                :wants_lump_sum, :poor_health
+                :wants_lump_sum, :poor_health,
+                :has_defined_contribution_pension
 
   def date_of_appointment
     Date.parse(@date_of_appointment) rescue @date_of_appointment
@@ -36,4 +37,6 @@ class AppointmentSummary
   validates :income_in_retirement, inclusion: { in: %w(pension other) }
   validates :guider_name, presence: true
   validates :guider_organisation, inclusion: { in: %w(tpas cab) }
+
+  validates :has_defined_contribution_pension, inclusion: { in: %w(yes no unknown) }
 end
