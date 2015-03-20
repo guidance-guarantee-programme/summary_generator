@@ -17,3 +17,9 @@ node_modules
 
 # Ignore bower components
 /vendor/assets/bower_components
+
+# Ignore vendored gems
+/vendor/cache
+
+# Ignore precompiled assets
+/public/assets
