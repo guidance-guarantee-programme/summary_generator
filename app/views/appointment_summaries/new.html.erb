@@ -3,7 +3,7 @@
     <h1><%= title 'New appointment summary' %></h1>
   </div>
 
-  <p class="lead">Use this form to enter the visitor's personal details provided during the guidance
+  <p class="lead">Use this form to enter the visitor's personal details given during the guidance
     appointment and to issue a personalised record of guidance.</p>
 
   <div class="consent">
@@ -62,7 +62,7 @@
     <div class="form-group">
       <fieldset>
         <legend>
-          <span>Organisation:</span>
+          <span>Organisation</span>
         </legend>
 
         <div class="radio">
@@ -90,7 +90,7 @@
     <div class="form-group">
       <fieldset>
         <legend>
-          <span>Does visitor have a Defined Contribution pension?</span>
+          <span>Does visitor have a defined contribution pension?</span>
         </legend>
         <div class="radio">
           <%= f.label :has_defined_contribution_pension, value: 'yes' do %>
@@ -122,15 +122,19 @@
           <div class="form-group form-inline">
             <%= f.label :value_of_pension_pots do %>
               Value of pension pots
-              <span class="input-help">Only use numbers, do not include pence, e.g 27500</span>
+              <span class="input-help">Only use numbers, don't include pence, eg 27500</span>
             <% end %><br />
-            £ <%= f.text_field :value_of_pension_pots, placeholder: 27500, class: %w(form-control t-value-of-pension-pots input-md-2 js-numbers-only) %>
+            £ <%= f.text_field :value_of_pension_pots, placeholder: 27500,
+                               class: %w(form-control t-value-of-pension-pots input-md-2 js-numbers-only) %>
 
             <span class="display_if_range">
-            to
-            <label for="appointment_summary_value_of_pension_pots_max" class="visuallyhidden">Max value of pension pots (optional)</label>
-            £ <input class="form-control input-md-2 js-numbers-only" type="text" name="appointment_summary[value_of_pension_pots_max]" id="appointment_summary_value_of_pension_pots_max" />
-            <span class="hide-with-js"> (optional)</span>
+              to
+              <%= f.label :upper_value_of_pension_pots do %>
+                <span class="visuallyhidden">Upper value of pension pots (optional) Only use numbers, don't include pence, eg 30000</span>
+              <% end %>
+              £ <%= f.text_field :upper_value_of_pension_pots, placeholder: 30000,
+                               class: %w(form-control input-md-2 js-numbers-only t-upper-value-of-pension-pots) %>
+              <span class="hide-with-js"> (optional)</span>
           </span>
           </div>
         </div>
@@ -139,13 +143,13 @@
       <div class="form-group">
         <fieldset>
           <legend>
-            <span>Income in retirement:</span>
+            <span>Income in retirement</span>
           </legend>
           <div class="radio">
             <%= f.label :income_in_retirement, value: 'pension' do %>
               <%= f.radio_button :income_in_retirement, 'pension',
                                  class: 't-income-in-retirement-pension' %>
-              Defined contribution pot is their only source of income
+              Only defined contribution pension(s) and State Pension (if eligible)
             <% end %>
           </div>
 
@@ -153,7 +157,7 @@
             <%= f.label :income_in_retirement, value: 'other' do %>
               <%= f.radio_button :income_in_retirement, 'other',
                                  class: 't-income-in-retirement-other' %>
-              Other income is available in retirement
+              Other income is available
             <% end %>
           </div>
         </fieldset>
@@ -167,7 +171,7 @@
       <div class="form-group">
         <fieldset>
           <legend>
-            <span>Circumstances and preferences:</span>
+            <span>Circumstances and preferences</span>
           </legend>
           <div class="checkbox">
             <%= f.label :continue_working do %>
@@ -275,7 +279,7 @@
         <div class="radio">
           <label for="appointment_summary_accuracy_4">
             <input class="t-income-in-retirement-other" type="radio" value="notprovided" name="appointment_summary[accuracy]" id="appointment_summary_accuracy_4" />
-            Not provided
+            No value given
           </label>
         </div>
       </fieldset>
