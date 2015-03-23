@@ -28,18 +28,7 @@ class AppointmentSummary
     Float.parse(@upper_value_of_pension_pots) rescue @upper_value_of_pension_pots
   end
 
-  TITLES = [
-    'Mr', 'Mrs', 'Miss', 'Ms', 'Mx', 'Dr', 'Professor', 'Admiral', 'Sir', 'Lady', 'Dame',
-    'Admiral Sir', 'Air Chief Marshal', 'Air Commodore', 'Air Vice Marshal', 'The Duchess of ',
-    'General', 'General Sir', 'Group Captain', 'Lieutenant General', 'The Reverend',
-    'Squadron Leader', 'The Viscount', 'The Viscountess', 'Lt Commander', 'Major The Hon',
-    'Captain Viscount', 'The Rt Hon', 'Lt', 'Captain The Hon Sir', 'Prince',
-    'Captain The Jonkheer', 'Viscount', 'Viscountess', 'The Hon Lady', 'Hon Mrs', 'Hon',
-    'Countess', 'Earl', 'Lord', 'Commodore', 'Air Marshal', 'Flight Lieutenant', 'The Lord',
-    'The Lady', 'Baron', 'The Baroness', 'Brigadier', 'Captain', 'Commander', 'Count', 'The Hon',
-    'The Hon Mrs', 'Colonel', 'Major', 'Major General', 'His Honour Judge', 'Lt Colonel',
-    'Rear Admiral', 'Wing Commander', 'Vice Admiral'
-  ]
+  TITLES = %w(Mr Mrs Miss Ms Mx Dr)
 
   validates :title, presence: true, inclusion: { in: TITLES }
   validates :last_name, presence: true
