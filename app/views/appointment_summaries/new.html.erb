@@ -6,10 +6,6 @@
   <p class="lead">Use this form to enter the visitor's personal details given during the guidance
     appointment and to issue a personalised record of guidance.</p>
 
-  <div class="consent">
-    <p class="highlight highlight-orange">Has visitor consented to sharing data for purpose of creating and sending record of guidance?</p>
-  </div>
-
   <div class="display_if_consent">
     <% if @appointment_summary.errors.any? %>
       <div class="alert alert-danger" role="alert">
