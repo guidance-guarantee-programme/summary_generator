@@ -1,5 +1,4 @@
 $(function () {
-  PWO.consent.init();
   PWO.eligibility.init();
   PWO.pensionPotAccuracy.init();
   PWO.pensionPotInput.init();
