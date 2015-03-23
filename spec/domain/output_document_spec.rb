@@ -17,7 +17,7 @@ RSpec.describe OutputDocument do
       upper_value_of_pension_pots: upper_value_of_pension_pots,
       income_in_retirement: :pension,
       guider_name: 'A Guider',
-      guider_organisation: 'tpas'
+      guider_organisation: 'cita'
     }
   end
   let(:appointment_summary) { AppointmentSummary.new(params) }

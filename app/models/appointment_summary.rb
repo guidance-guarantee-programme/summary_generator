@@ -44,7 +44,7 @@ class AppointmentSummary
 
   validates :income_in_retirement, inclusion: { in: %w(pension other) }, if: :eligible_for_guidance?
   validates :guider_name, presence: true
-  validates :guider_organisation, inclusion: { in: %w(tpas cab) }
+  validates :guider_organisation, inclusion: { in: %w(nicab cita) }
 
   validates :has_defined_contribution_pension, inclusion: { in: %w(yes no unknown) }
 
