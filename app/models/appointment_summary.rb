@@ -30,7 +30,7 @@ class AppointmentSummary
 
   TITLES = %w(Mr Mrs Miss Ms Mx Dr)
 
-  validates :title, presence: true, inclusion: { in: TITLES }
+  validates :title, presence: true, inclusion: { in: TITLES, allow_blank: true }
   validates :last_name, presence: true
   validates :date_of_appointment, timeliness: { on_or_before: -> { Date.current },
                                                 on_or_after: Date.new(2015),
