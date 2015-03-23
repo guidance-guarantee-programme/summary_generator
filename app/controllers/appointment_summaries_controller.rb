@@ -22,11 +22,14 @@ class AppointmentSummariesController < ApplicationController
   def appointment_summary_params
     params
       .require(:appointment_summary)
-      .permit(:name, :date_of_appointment,
+      .permit(:title, :first_name, :last_name,
+              :date_of_appointment, :reference_number,
               :value_of_pension_pots, :income_in_retirement,
+              :upper_value_of_pension_pots,
               :guider_name, :guider_organisation,
               :continue_working, :unsure, :leave_inheritance,
               :wants_flexibility, :wants_security,
-              :wants_lump_sum, :poor_health)
+              :wants_lump_sum, :poor_health,
+              :has_defined_contribution_pension)
   end
 end
