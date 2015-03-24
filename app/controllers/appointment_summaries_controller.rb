@@ -27,6 +27,7 @@ class AppointmentSummariesController < ApplicationController
               :value_of_pension_pots, :income_in_retirement,
               :upper_value_of_pension_pots,
               :guider_name, :guider_organisation,
+              :address_line_1, :address_line_2, :address_line_3, :county, :town, :postcode,
               :continue_working, :unsure, :leave_inheritance,
               :wants_flexibility, :wants_security,
               :wants_lump_sum, :poor_health,

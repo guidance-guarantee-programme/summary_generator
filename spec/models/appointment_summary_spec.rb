@@ -37,6 +37,13 @@ RSpec.describe AppointmentSummary, type: :model do
   it { is_expected.to validate_presence_of(:guider_name) }
   it { is_expected.to validate_inclusion_of(:guider_organisation).in_array(%w(cita nicab)) }
 
+  it { is_expected.to validate_presence_of(:address_line_1) }
+  it { is_expected.to_not validate_presence_of(:address_line_2) }
+  it { is_expected.to_not validate_presence_of(:address_line_3) }
+  it { is_expected.to validate_presence_of(:town) }
+  it { is_expected.to_not validate_presence_of(:county) }
+  it { is_expected.to validate_presence_of(:postcode) }
+
   it do
     is_expected
       .to validate_inclusion_of(:has_defined_contribution_pension).in_array(%w(yes no unknown))
