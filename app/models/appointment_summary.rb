@@ -5,6 +5,7 @@ class AppointmentSummary
                 :date_of_appointment, :reference_number,
                 :value_of_pension_pots, :upper_value_of_pension_pots, :income_in_retirement,
                 :guider_name, :guider_organisation,
+                :address_line_1, :address_line_2, :address_line_3, :county, :town, :postcode,
                 :continue_working, :unsure, :leave_inheritance,
                 :wants_flexibility, :wants_security,
                 :wants_lump_sum, :poor_health,
@@ -45,6 +46,10 @@ class AppointmentSummary
   validates :income_in_retirement, inclusion: { in: %w(pension other) }, if: :eligible_for_guidance?
   validates :guider_name, presence: true
   validates :guider_organisation, inclusion: { in: %w(nicab cita) }
+
+  validates :address_line_1, presence: true
+  validates :town, presence: true
+  validates :postcode, presence: true
 
   validates :has_defined_contribution_pension, inclusion: { in: %w(yes no unknown) }
 
