@@ -26,6 +26,6 @@ Then(/^a record of guidance document is created$/) do
   expect(page.response_headers['Content-Type']).to eql('application/pdf')
   text = PDF::Inspector::Text.analyze(page.source).strings.join
   expect(text).to include('Joe Bloggs')
-  expect(text).to include('February 5, 2015')
+  expect(text).to match(/February 5, ?2015/) # this is showing up as "February 5,2015" on Travis
   expect(text).to include('£35,000')
 end
