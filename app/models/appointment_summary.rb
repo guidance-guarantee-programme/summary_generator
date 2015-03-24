@@ -45,13 +45,25 @@ class AppointmentSummary
 
   validates :income_in_retirement, inclusion: { in: %w(pension other) }, if: :eligible_for_guidance?
   validates :guider_name, presence: true
-  validates :guider_organisation, inclusion: { in: %w(nicab cita) }
+  validates :guider_organisation,
+            presence: true,
+            inclusion: {
+              in: %w(nicab cita),
+              allow_blank: true,
+              message: '%{value} is not a valid organisation'
+            }
 
   validates :address_line_1, presence: true
   validates :town, presence: true
   validates :postcode, presence: true
 
-  validates :has_defined_contribution_pension, inclusion: { in: %w(yes no unknown) }
+  validates :has_defined_contribution_pension,
+            presence: true,
+            inclusion: {
+              in: %w(yes no unknown),
+              allow_blank: true,
+              message: '%{value} is not a valid value'
+            }
 
   def eligible_for_guidance?
     %w(yes unknown).include?(has_defined_contribution_pension)
