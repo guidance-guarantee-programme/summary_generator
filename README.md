@@ -44,6 +44,13 @@ $ ./bin/foreman s -p <port>
 
 where <port> is the port you'd like the application to listen on.
 
+### Production-mode
+
+To run the application in "production" mode, the following environment variables need to be set:
+
+* `RAILS_ENV=production`
+* `SECRET_KEY_BASE=<some secret token>`
+
 ## Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
