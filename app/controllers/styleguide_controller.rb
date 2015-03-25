@@ -39,6 +39,12 @@ class StyleguideController < ApplicationController
     )
     output_document = OutputDocument.new(appointment_summary)
 
-    render html: output_document.html.html_safe
+    if params[:format] == 'pdf'
+      send_data output_document.pdf,
+                filename: 'pensionwise.pdf', type: 'application/pdf',
+                disposition: 'inline'
+    else
+      render html: output_document.html.html_safe
+    end
   end
 end
