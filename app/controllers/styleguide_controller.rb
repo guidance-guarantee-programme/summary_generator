@@ -9,10 +9,10 @@ class StyleguideController < ApplicationController
   def pages_output_elements
     respond_to do |format|
       format.html do
-        render template: 'styleguide/pages/output_elements'
+        render template: 'styleguide/pages/output_elements', layout: false
       end
       format.pdf do
-        render pdf: 'pensionwise.pdf', disposition: :inline, layout: nil,
+        render pdf: 'pensionwise.pdf', disposition: :inline,
                template: 'styleguide/pages/output_elements'
       end
     end
