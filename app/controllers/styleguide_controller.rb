@@ -6,6 +6,10 @@ class StyleguideController < ApplicationController
     render template: 'styleguide/pages/input'
   end
 
+  def pages_output_elements
+    render template: 'styleguide/pages/output_elements'
+  end
+
   def pages_output_custom
     render_output_document
   end
