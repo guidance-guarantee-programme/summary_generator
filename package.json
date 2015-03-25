@@ -5,6 +5,6 @@
     "bower": "*"
   },
   "scripts": {
-    "postinstall": "./node_modules/.bin/bower install"
+    "postinstall": "./node_modules/.bin/bower install --config.interactive=false --production"
   }
 }
