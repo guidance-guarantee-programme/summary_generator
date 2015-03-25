@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   scope path: 'styleguide', controller: 'styleguide' do
     scope path: 'pages' do
       get 'input', action: 'pages_input'
-      get 'input-v2', action: 'pages_input_v2'
-      get 'output', action: 'pages_output'
-      get 'output-v2', action: 'pages_output_v2'
+      get 'output-elements', action: 'pages_output_elements'
+      get 'output-custom', action: 'pages_output_custom'
+      get 'output-generic', action: 'pages_output_generic'
+      get 'output-ineligible', action: 'pages_output_ineligible'
     end
 
     get '(/:action)'

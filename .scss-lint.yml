@@ -171,10 +171,9 @@ linters:
   UrlQuotes:
     enabled: true
 
-  VendorPrefixes:
+  VendorPrefix:
     enabled: true
     identifier_list: base
-    include: []
     exclude:
     - app/assets/stylesheets/output_document-ie.css.scss
 
