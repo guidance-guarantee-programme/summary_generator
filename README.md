@@ -51,6 +51,25 @@ To run the application in "production" mode, the following environment variables
 * `RAILS_ENV=production`
 * `SECRET_KEY_BASE=<some secret token>`
 
+### Authentication
+
+This app supports [digest access authentication][digest_auth].
+
+To enable it, provide the path to a csv file of usernames and passwords as the `PDF_OUTPUT_USER_FILE`
+environment variable. *Authentication will only be enabled if the file is readable and has at least
+one user.*
+
+Each row in the file should have the format `username,password`.
+
+Passwords in the user file can either be stored in plain text or as a hash created with the included
+`bin/pwdigest` script. To create a password hash, run:
+
+```sh
+$ bin/pwdigest <username> <password>
+```
+
+providing the username and password in plain text. The password hash will be output on standard out.
+
 ## Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
@@ -61,6 +80,7 @@ To run the application in "production" mode, the following environment variables
 Please see the [contributing guidelines](/CONTRIBUTING.md).
 
 [bundler]: http://bundler.io
+[digest_auth]: http://en.wikipedia.org/wiki/Digest_access_authentication
 [git]: http://git-scm.com
 [heroku]: https://www.heroku.com
 [node]: http://nodejs.org
