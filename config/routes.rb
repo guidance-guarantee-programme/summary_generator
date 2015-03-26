@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       get '(/:action)'
     end
 
+    get '/status', to: 'status#show'
+
     mount GovukAdminTemplate::Engine, at: '/style-guide'
   end
 end
