@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :appointment_summaries, only: %i(new create)
 
+  get '/status', to: 'status#show'
+
   mount GovukAdminTemplate::Engine, at: '/style-guide'
 
   scope path: 'styleguide', controller: 'styleguide' do
