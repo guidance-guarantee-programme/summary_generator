@@ -61,8 +61,9 @@ one user.*
 
 Each row in the file should have the format `username,password`.
 
-Passwords in the user file can either be stored in plain text or as a hash created with the included
-`bin/pwdigest` script. To create a password hash, run:
+Passwords in the user file must be stored as a hash created with the included `bin/pwdigest` script.
+
+To create a password hash, run:
 
 ```sh
 $ bin/pwdigest <username> <password>
