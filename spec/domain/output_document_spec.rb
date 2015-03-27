@@ -5,6 +5,7 @@ RSpec.describe OutputDocument do
   let(:first_name) { 'Joe' }
   let(:last_name) { 'Bloggs' }
   let(:output_document) { described_class.new(appointment_summary) }
+  let(:attendee_name) { "#{title} #{first_name} #{last_name}" }
   let(:value_of_pension_pots) { nil }
   let(:upper_value_of_pension_pots) { nil }
   let(:params) do
@@ -49,12 +50,12 @@ RSpec.describe OutputDocument do
     only_includes_circumstance('')
   end
 
-  let(:customer_name) { "#{title} #{first_name} #{last_name}" }
+  specify { expect(output_document.attendee_name).to eq(attendee_name) }
 
   describe '#html' do
     subject { output_document.html }
 
-    it { is_expected.to include(customer_name) }
+    it { is_expected.to include(attendee_name) }
 
     context 'when ineligible for guidance' do
       before do
@@ -118,6 +119,6 @@ RSpec.describe OutputDocument do
   describe '#pdf' do
     subject { PDF::Inspector::Text.analyze(output_document.pdf).strings.join }
 
-    it { is_expected.to include(customer_name) }
+    it { is_expected.to include(attendee_name) }
   end
 end
