@@ -8,6 +8,7 @@ When(/^appointment details are captured$/) do
   page.reference_number.set '98212'
   page.value_of_pension_pots.set 35_000
   page.upper_value_of_pension_pots.set 55_000
+  page.value_of_pension_pots_is_approximate.set true
   page.income_in_retirement_pension.set true
   page.guider_name.set 'Alex Leahy'
   page.guider_organisation_cita.set true
