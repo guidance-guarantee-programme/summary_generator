@@ -128,6 +128,10 @@ RSpec.describe OutputDocument do
     end
   end
 
+  describe '#greeting' do
+    it 'needs details'
+  end
+
   describe '#html' do
     subject { output_document.html }
 
