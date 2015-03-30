@@ -144,7 +144,7 @@ RSpec.describe OutputDocument do
     it do
       is_expected.to eq(
         'You recently had a Pension Wise guidance appointment with James ' \
-        'from Citizens Advice on March 30, 2015'
+        'from Citizens Advice on 30 March 2015'
       )
     end
   end
