@@ -10,17 +10,19 @@ RSpec.describe OutputDocument do
   let(:upper_value_of_pension_pots) { nil }
   let(:guider_organisation) { 'cita' }
   let(:value_of_pension_pots_is_approximate) { false }
+  let(:guider_name) { 'James' }
+  let(:date_of_appointment) { Date.new(2015, 3, 30) }
   let(:params) do
     {
       title: title,
       first_name: first_name,
       last_name: last_name,
-      date_of_appointment: Date.today,
+      date_of_appointment: date_of_appointment,
       value_of_pension_pots: value_of_pension_pots,
       upper_value_of_pension_pots: upper_value_of_pension_pots,
       value_of_pension_pots_is_approximate: value_of_pension_pots_is_approximate,
       income_in_retirement: :pension,
-      guider_name: 'A Guider',
+      guider_name: guider_name,
       guider_organisation: guider_organisation
     }
   end
@@ -136,8 +138,15 @@ RSpec.describe OutputDocument do
     end
   end
 
-  describe '#greeting' do
-    it 'needs details'
+  describe '#lead' do
+    subject { output_document.lead }
+
+    it do
+      is_expected.to eq(
+        'You recently had a Pension Wise guidance appointment with James ' \
+        'from Citizens Advice on March 30, 2015'
+      )
+    end
   end
 
   describe '#pages_to_render' do
