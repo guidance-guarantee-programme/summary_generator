@@ -4,6 +4,10 @@ When(/^appointment details are captured$/) do
   page.title.select 'Mr'
   page.first_name.set 'Joe'
   page.last_name.set 'Bloggs'
+  page.address_line_1.set 'HM Treasury'
+  page.address_line_2.set '1 Horse Guards Road'
+  page.town.set 'London'
+  page.postcode.set 'SW1A 2HQ'
   page.date_of_appointment.set '05/02/2015'
   page.value_of_pension_pots.set 35_000
   page.upper_value_of_pension_pots.set 55_000
@@ -20,6 +24,14 @@ When(/^appointment details are captured$/) do
   page.wants_lump_sum.set true
   page.poor_health.set true
   page.submit.click
+end
+
+When(/^I preview the record of guidance document$/) do
+  page = RecordOfGuidancePreviewPage.new
+  expect(page).to be_displayed
+  expect(page).to have_text('Mr Joe Bloggs')
+
+  page.confirm.click
 end
 
 Then(/^a record of guidance document is created$/) do

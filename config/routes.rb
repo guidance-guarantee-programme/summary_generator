@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'appointment_summaries#new'
 
   constraints format: 'html' do
-    resources :appointment_summaries, only: %i(new create)
+    resources :appointment_summaries, only: %i(new create) do
+      post :preview, on: :collection
+    end
 
     scope path: 'styleguide', controller: 'styleguide' do
       scope path: 'pages' do
