@@ -12,9 +12,8 @@ class AppointmentSummary
                 :wants_lump_sum, :poor_health,
                 :has_defined_contribution_pension
 
-  %i(continue_working unsure leave_inheritance
-     wants_flexibility wants_security
-     wants_lump_sum poor_health).each do |predicate_method|
+  %i(continue_working unsure leave_inheritance wants_flexibility wants_security
+     wants_lump_sum poor_health value_of_pension_pots_is_approximate).each do |predicate_method|
     alias_method(:"#{predicate_method}?", predicate_method)
   end
 
