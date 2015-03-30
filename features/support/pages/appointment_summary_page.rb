@@ -5,7 +5,6 @@ class AppointmentSummaryPage < SitePrism::Page
   element :first_name, '.t-first-name'
   element :last_name, '.t-last-name'
   element :date_of_appointment, '.t-date-of-appointment'
-  element :reference_number, '.t-reference-number'
   element :value_of_pension_pots, '.t-value-of-pension-pots'
   element :upper_value_of_pension_pots, '.t-upper-value-of-pension-pots'
   element :value_of_pension_pots_is_approximate, '.t-value-of-pension-pots-is-approximate'

@@ -21,9 +21,6 @@ RSpec.describe AppointmentSummary, type: :model do
   it { is_expected.to_not allow_value('10/02/2012').for(:date_of_appointment) }
   it { is_expected.to_not allow_value(Date.tomorrow.to_s).for(:date_of_appointment) }
 
-  it { is_expected.to validate_presence_of(:reference_number) }
-  it { is_expected.to validate_numericality_of(:reference_number).only_integer }
-
   it { is_expected.to_not validate_presence_of(:value_of_pension_pots) }
   it { is_expected.to validate_numericality_of(:value_of_pension_pots) }
   it { is_expected.to allow_value('').for(:value_of_pension_pots) }

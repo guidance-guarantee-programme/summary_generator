@@ -62,10 +62,6 @@ class OutputDocument
       "from #{guider_organisation} on #{appointment_date}"
   end
 
-  def appointment_reference
-    appointment_summary.reference_number
-  end
-
   def pages_to_render
     case variant
     when 'tailored'
