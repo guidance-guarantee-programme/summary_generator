@@ -2,7 +2,7 @@ class AppointmentSummary
   include ActiveModel::Model
 
   attr_accessor :title, :first_name, :last_name,
-                :date_of_appointment, :reference_number,
+                :date_of_appointment,
                 :value_of_pension_pots, :income_in_retirement,
                 :upper_value_of_pension_pots, :value_of_pension_pots_is_approximate,
                 :guider_name, :guider_organisation,
@@ -36,7 +36,6 @@ class AppointmentSummary
   validates :date_of_appointment, timeliness: { on_or_before: -> { Date.current },
                                                 on_or_after: Date.new(2015),
                                                 type: :date }
-  validates :reference_number, numericality: { only_integer: true, allow_blank: true }, presence: true
 
   with_options numericality: true, allow_blank: true, if: :eligible_for_guidance? do |eligible|
     eligible.validates :value_of_pension_pots

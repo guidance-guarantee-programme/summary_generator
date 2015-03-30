@@ -5,7 +5,6 @@ When(/^appointment details are captured$/) do
   page.first_name.set 'Joe'
   page.last_name.set 'Bloggs'
   page.date_of_appointment.set '05/02/2015'
-  page.reference_number.set '98212'
   page.value_of_pension_pots.set 35_000
   page.upper_value_of_pension_pots.set 55_000
   page.value_of_pension_pots_is_approximate.set true
