@@ -17,6 +17,15 @@ class AppointmentSummariesController < ApplicationController
     end
   end
 
+  def preview
+    @appointment_summary = AppointmentSummary.new(appointment_summary_params)
+    if @appointment_summary.valid?
+      @output_document = OutputDocument.new(@appointment_summary)
+    else
+      render :new
+    end
+  end
+
   private
 
   def appointment_summary_params
