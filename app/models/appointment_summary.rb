@@ -3,7 +3,8 @@ class AppointmentSummary
 
   attr_accessor :title, :first_name, :last_name,
                 :date_of_appointment, :reference_number,
-                :value_of_pension_pots, :upper_value_of_pension_pots, :income_in_retirement,
+                :value_of_pension_pots, :income_in_retirement,
+                :upper_value_of_pension_pots, :value_of_pension_pots_is_approximate,
                 :guider_name, :guider_organisation,
                 :address_line_1, :address_line_2, :address_line_3, :county, :town, :postcode,
                 :continue_working, :unsure, :leave_inheritance,
@@ -11,9 +12,8 @@ class AppointmentSummary
                 :wants_lump_sum, :poor_health,
                 :has_defined_contribution_pension
 
-  %i(continue_working unsure leave_inheritance
-     wants_flexibility wants_security
-     wants_lump_sum poor_health).each do |predicate_method|
+  %i(continue_working unsure leave_inheritance wants_flexibility wants_security
+     wants_lump_sum poor_health value_of_pension_pots_is_approximate).each do |predicate_method|
     alias_method(:"#{predicate_method}?", predicate_method)
   end
 
@@ -36,7 +36,7 @@ class AppointmentSummary
   validates :date_of_appointment, timeliness: { on_or_before: -> { Date.current },
                                                 on_or_after: Date.new(2015),
                                                 type: :date }
-  validates :reference_number, numericality: true, presence: true
+  validates :reference_number, numericality: { only_integer: true, allow_blank: true }, presence: true
 
   with_options numericality: true, allow_blank: true, if: :eligible_for_guidance? do |eligible|
     eligible.validates :value_of_pension_pots
@@ -45,13 +45,25 @@ class AppointmentSummary
 
   validates :income_in_retirement, inclusion: { in: %w(pension other) }, if: :eligible_for_guidance?
   validates :guider_name, presence: true
-  validates :guider_organisation, inclusion: { in: %w(nicab cita) }
+  validates :guider_organisation,
+            presence: true,
+            inclusion: {
+              in: %w(nicab cita),
+              allow_blank: true,
+              message: '%{value} is not a valid organisation'
+            }
 
   validates :address_line_1, presence: true
   validates :town, presence: true
   validates :postcode, presence: true
 
-  validates :has_defined_contribution_pension, inclusion: { in: %w(yes no unknown) }
+  validates :has_defined_contribution_pension,
+            presence: true,
+            inclusion: {
+              in: %w(yes no unknown),
+              allow_blank: true,
+              message: '%{value} is not a valid value'
+            }
 
   def eligible_for_guidance?
     %w(yes unknown).include?(has_defined_contribution_pension)
