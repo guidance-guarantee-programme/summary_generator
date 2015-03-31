@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/andrewgarner/govuk_admin_template.git
+  remote: https://github.com/andrewgarner/govuk_admin_template.git
   revision: c0ba6e52dbd76236aaab8705838ae4da008aace8
   branch: configurable-analytics
   specs:
