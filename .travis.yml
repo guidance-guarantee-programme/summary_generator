@@ -21,5 +21,6 @@ before_script:
 - (cd .downloads; [ -d prince-9.0r5-linux-amd64-static ] || curl -s http://www.princexml.com/download/prince-9.0r5-linux-amd64-static.tar.gz | tar xzf -)
 - echo $PWD | ./.downloads/prince-9.0r5-linux-amd64-static/install.sh
 - npm install
+- 'npm install git://github.com/guidance-guarantee-programme/travis-notify-geckoboard#item-must-be-array'
 after_script:
 - "./node_modules/.bin/travis-notify-geckoboard -a $GECKOBOARD_API_KEY -w $GECKOBOARD_WIDGET_KEY"
