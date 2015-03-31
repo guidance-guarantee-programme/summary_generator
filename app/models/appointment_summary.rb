@@ -14,6 +14,11 @@ class AppointmentSummary
 
   %i(continue_working unsure leave_inheritance wants_flexibility wants_security
      wants_lump_sum poor_health value_of_pension_pots_is_approximate).each do |predicate_method|
+    define_method("#{predicate_method}=") do |value|
+      boolean = [true, 'true', '1', 1].member?(value)
+      instance_variable_set("@#{predicate_method}", boolean)
+    end
+
     alias_method(:"#{predicate_method}?", predicate_method)
   end
 

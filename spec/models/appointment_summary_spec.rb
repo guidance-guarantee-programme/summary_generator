@@ -46,6 +46,93 @@ RSpec.describe AppointmentSummary, type: :model do
       .to validate_inclusion_of(:has_defined_contribution_pension).in_array(%w(yes no unknown))
   end
 
+  describe 'boolean fields' do
+    shared_examples 'a boolean field' do
+      def set(value)
+        subject.public_send(:"#{field}=", value)
+      end
+
+      def get
+        subject.public_send(field)
+      end
+
+      it 'converts "true" to true' do
+        set('true')
+        expect(get).to be(true)
+      end
+
+      it 'converts "1" to true' do
+        set('1')
+        expect(get).to be(true)
+      end
+
+      it 'converts 1 to true' do
+        set(1)
+        expect(get).to be(true)
+      end
+
+      it 'leaves true as true' do
+        set(true)
+        expect(get).to be(true)
+      end
+
+      it 'converts "random" to false' do
+        set('random')
+        expect(get).to be(false)
+      end
+
+      it 'converts "0" to false' do
+        set('0')
+        expect(get).to be(false)
+      end
+
+      it 'converts 0 to false' do
+        set(0)
+        expect(get).to be(false)
+      end
+    end
+
+    describe 'continue_working' do
+      let(:field) { :continue_working }
+      it_should_behave_like 'a boolean field'
+    end
+
+    describe 'unsure' do
+      let(:field) { :unsure }
+      it_should_behave_like 'a boolean field'
+    end
+
+    describe 'leave_inheritance' do
+      let(:field) { :leave_inheritance }
+      it_should_behave_like 'a boolean field'
+    end
+
+    describe 'wants_flexibility' do
+      let(:field) { :wants_flexibility }
+      it_should_behave_like 'a boolean field'
+    end
+
+    describe 'wants_security' do
+      let(:field) { :wants_security }
+      it_should_behave_like 'a boolean field'
+    end
+
+    describe 'wants_lump_sum' do
+      let(:field) { :wants_lump_sum }
+      it_should_behave_like 'a boolean field'
+    end
+
+    describe 'poor_health' do
+      let(:field) { :poor_health }
+      it_should_behave_like 'a boolean field'
+    end
+
+    describe 'value_of_pension_pots_is_approximate' do
+      let(:field) { :value_of_pension_pots_is_approximate }
+      it_should_behave_like 'a boolean field'
+    end
+  end
+
   context 'when ineligible for guidance' do
     let(:has_defined_contribution_pension) { 'no' }
 
