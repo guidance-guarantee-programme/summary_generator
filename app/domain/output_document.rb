@@ -21,7 +21,7 @@ class OutputDocument
   end
 
   def appointment_date
-    appointment_summary.date_of_appointment.to_s(:long)
+    appointment_summary.date_of_appointment.to_s(:gov_uk)
   end
 
   def guider_organisation
@@ -77,6 +77,13 @@ class OutputDocument
     when 'other'
       %w(ineligible)
     end
+  end
+
+  def stylesheet(filename)
+    css = Sass.compile(ERB.new(
+      File.read(Rails.root.join('app', 'assets', 'stylesheets', filename))
+    ).result(binding))
+    "<style>\n#{css}\n</style>".html_safe
   end
 
   def html
