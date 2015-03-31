@@ -71,9 +71,9 @@ class OutputDocument
         appointment_summary.public_send("#{c}?".to_sym)
       end
 
-      [:introduction, circumstances, :other_information].flatten
+      [:cover_letter, :introduction, circumstances, :other_information].flatten
     when 'generic'
-      %w(introduction generic_guidance other_information)
+      %w(cover_letter introduction generic_guidance other_information)
     when 'other'
       %w(ineligible)
     end
