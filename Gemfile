@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.2.1'
 
+# force Bundler to use HTTPS for github repos
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
+
 gem 'autoprefixer-rails'
 gem 'bugsnag'
 gem 'foreman'
