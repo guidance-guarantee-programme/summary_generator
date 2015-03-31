@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'appointment_summaries#new'
 
-  resources :appointment_summaries, only: %i(new create)
+  resources :appointment_summaries, only: %i(new create) do
+    post :preview, on: :collection
+  end
 
   get '/status', to: 'status#show'
 

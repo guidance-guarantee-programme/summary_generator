@@ -5,4 +5,5 @@ Feature: Create record of guidance
 
 Scenario: Capture and email a record of guidance
   When appointment details are captured
+  And I preview the record of guidance document
   Then a record of guidance document is created
