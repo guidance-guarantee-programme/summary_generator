@@ -1,15 +1,14 @@
 class OutputDocument
   include ActionView::Helpers::NumberHelper
+  include ActionView::Helpers::TextHelper
 
   attr_accessor :appointment_summary
 
   delegate :id, :guider_name, :income_in_retirement, :continue_working, :unsure,
-           :leave_inheritance, :wants_flexibility, :wants_security,
-           :wants_lump_sum, :poor_health,
+           :leave_inheritance, :wants_flexibility, :wants_security, :wants_lump_sum, :poor_health,
            to: :appointment_summary
 
-  delegate :address_line_1, :address_line_2, :address_line_3, :town, :county,
-           :postcode,
+  delegate :address_line_1, :address_line_2, :address_line_3, :town, :county, :postcode,
            to: :appointment_summary, prefix: :attendee
 
   def initialize(appointment_summary)
@@ -18,6 +17,16 @@ class OutputDocument
 
   def attendee_name
     "#{appointment_summary.title} #{appointment_summary.first_name} #{appointment_summary.last_name}".squish
+  end
+
+  def attendee_address
+    [attendee_name,
+     attendee_address_line_1,
+     attendee_address_line_2,
+     attendee_address_line_3,
+     attendee_town,
+     attendee_county,
+     attendee_postcode].reject(&:blank?).map(&:squish).join("\n")
   end
 
   def appointment_date
