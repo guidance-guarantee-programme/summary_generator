@@ -55,11 +55,11 @@ To run the application in "production" mode, the following environment variables
 
 This app supports [digest access authentication][digest_auth].
 
-To enable it, provide the path to a csv file of usernames and passwords as the `PDF_OUTPUT_USER_FILE`
+To enable it, provide the path to a csv file of usernames and hashed passwords as the `PDF_OUTPUT_USER_FILE`
 environment variable. *Authentication will only be enabled if the file is readable and has at least
 one user.*
 
-Each row in the file should have the format `username,password`.
+Each row in the file should have the format `username,hashed-password`.
 
 Passwords in the user file must be stored as a hash created with the included `bin/pwdigest` script.
 
