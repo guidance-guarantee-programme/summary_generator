@@ -4,8 +4,9 @@ class OutputDocument
 
   attr_accessor :appointment_summary
 
-  delegate :id, :guider_name, :income_in_retirement, :continue_working, :unsure,
-           :leave_inheritance, :wants_flexibility, :wants_security, :wants_lump_sum, :poor_health,
+  delegate :id, :income_in_retirement, :continue_working, :unsure,
+           :leave_inheritance, :wants_flexibility, :wants_security,
+           :wants_lump_sum, :poor_health,
            to: :appointment_summary
 
   delegate :address_line_1, :address_line_2, :address_line_3, :town, :county, :postcode,
@@ -67,8 +68,12 @@ class OutputDocument
   end
 
   def lead
-    "You recently had a Pension Wise guidance appointment with #{guider_name} " \
+    "You recently had a Pension Wise guidance appointment with #{guider_first_name} " \
       "from #{guider_organisation} on #{appointment_date}."
+  end
+
+  def guider_first_name
+    appointment_summary.guider_name
   end
 
   def pages_to_render
