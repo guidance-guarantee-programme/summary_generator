@@ -11,7 +11,15 @@ Given(/^one or more of the predefined circumstances applies to the customer$/) d
 end
 
 Given(/^we don't know that any of the predefined circumstances apply to the customer$/) do
-  pending
+  @appointment_summary = fixture(:populated_appointment_summary).tap do |as|
+    as.continue_working = false
+    as.unsure = false
+    as.leave_inheritance = false
+    as.wants_flexibility = false
+    as.wants_security = false
+    as.wants_lump_sum = false
+    as.poor_health = false
+  end
 end
 
 When(/^we send them their record of guidance$/) do
@@ -45,15 +53,43 @@ Then(/^the sections it includes should be \(in order\):$/) do |table|
   expect(section_indexes.sort).to eq(section_indexes)
 end
 
-# rubocop:disable UnusedBlockArgument
 Given(/^"(.*?)" applies to the customer$/) do |circumstance|
-  pending
+  @appointment_summary = fixture(:populated_appointment_summary).tap do |as|
+    as.continue_working = false
+    as.unsure = false
+    as.leave_inheritance = false
+    as.wants_flexibility = false
+    as.wants_security = false
+    as.wants_lump_sum = false
+    as.poor_health = false
+  end
+
+  case circumstance
+  when 'Plans to continue working for a while' then @appointment_summary.continue_working = true
+  when 'Unsure about plans in retirement'      then @appointment_summary.unsure = true
+  when 'Plans to leave money to someone'       then @appointment_summary.leave_inheritance = true
+  when 'Wants flexibility when taking money'   then @appointment_summary.wants_flexibility = true
+  when 'Wants a guaranteed income'             then @appointment_summary.wants_security = true
+  when 'Needs a certain amount of money now'   then @appointment_summary.wants_lump_sum = true
+  when 'Has poor health'                       then @appointment_summary.poor_health = true
+  end
 end
 
 Then(/^it should include information about "(.*?)"$/) do |circumstance|
-  pending
+  section = case circumstance
+            when 'Plans to continue working for a while' then '<!-- section: continue working -->'
+            when 'Unsure about plans in retirement'      then '<!-- section: unsure -->'
+            when 'Plans to leave money to someone'       then '<!-- section: leave inheritance -->'
+            when 'Wants flexibility when taking money'   then '<!-- section: wants flexibility -->'
+            when 'Wants a guaranteed income'             then '<!-- section: wants security -->'
+            when 'Needs a certain amount of money now'   then '<!-- section: wants lump sum -->'
+            when 'Has poor health'                       then '<!-- section: poor health -->'
+            end
+
+  expect(page.source).to include(section)
 end
 
+# rubocop:disable UnusedBlockArgument
 Given(/^the customer has access to income during retirement from "(.*?)"$/) do |sources_of_income|
   pending
 end

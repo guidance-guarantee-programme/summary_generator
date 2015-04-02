@@ -13,7 +13,6 @@ Scenario: Tailored record of guidance
     | detail about applicable circumstances |
     | other information                     |
 
-@todo
 Scenario: Generic record of guidance
   Given we don't know that any of the predefined circumstances apply to the customer
   When we send them their record of guidance
@@ -24,7 +23,6 @@ Scenario: Generic record of guidance
     | detail about each option |
     | other information        |
 
-@todo
 Scenario Outline: Guidance is tailored based on applicable circumstances
   Given "<circumstance>" applies to the customer
   When we send them their record of guidance
