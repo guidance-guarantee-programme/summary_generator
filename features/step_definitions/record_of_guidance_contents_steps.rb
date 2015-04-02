@@ -89,13 +89,24 @@ Then(/^it should include information about "(.*?)"$/) do |circumstance|
   expect(page.source).to include(section)
 end
 
-# rubocop:disable UnusedBlockArgument
-Given(/^the customer has access to income during retirement from "(.*?)"$/) do |sources_of_income|
-  pending
+Given(/^the customer has access to income during retirement from (.*?)$/) do |sources_of_income|
+  @appointment_summary = fixture(:populated_appointment_summary).tap do |as|
+    as.income_in_retirement = case sources_of_income
+                              when 'only their DC pot and state pension' then 'pension'
+                              when 'multiple sources'                    then 'other'
+                              end
+  end
 end
 
-Then(/^the "pension-pot" section should be the "(.*?)" version$/) do |version|
-  pending
+Then(/^the "pension pot" section should be the "(.*?)" version$/) do |version|
+  version = case version
+            when 'only their DC pot and state pension' then 'pension'
+            when 'multiple sources'                    then 'other'
+            end
+
+  section_identifier = '<!-- section: pension pot'
+  expect(page.source.scan(/#{section_identifier}/).count).to eq(1)
+  expect(page.source).to include("#{section_identifier}, version: #{version} -->")
 end
 
 Given(/^we have captured the customer's details in an appointment summary$/) do
@@ -105,4 +116,3 @@ end
 Then(/^the record of guidance should include their details$/) do
   pending
 end
-# rubocop:enable UnusedBlockArgument
