@@ -11,7 +11,15 @@ Given(/^one or more of the predefined circumstances applies to the customer$/) d
 end
 
 Given(/^we don't know that any of the predefined circumstances apply to the customer$/) do
-  pending
+  @appointment_summary = fixture(:populated_appointment_summary).tap do |as|
+    as.continue_working = false
+    as.unsure = false
+    as.leave_inheritance = false
+    as.wants_flexibility = false
+    as.wants_security = false
+    as.wants_lump_sum = false
+    as.poor_health = false
+  end
 end
 
 When(/^we send them their record of guidance$/) do
