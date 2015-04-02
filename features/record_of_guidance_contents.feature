@@ -1,4 +1,3 @@
-@todo
 Feature: Record of guidance contents
   As Pension Wise
   We want to provide a record of guidance that is as tailored as possible
@@ -14,6 +13,7 @@ Scenario: Tailored record of guidance
     | detail about applicable circumstances |
     | other information                     |
 
+@todo
 Scenario: Generic record of guidance
   Given we don't know that any of the predefined circumstances apply to the customer
   When we send them their record of guidance
@@ -24,6 +24,7 @@ Scenario: Generic record of guidance
     | detail about each option |
     | other information        |
 
+@todo
 Scenario Outline: Guidance is tailored based on applicable circumstances
   Given "<circumstance>" applies to the customer
   When we send them their record of guidance
@@ -39,6 +40,7 @@ Scenario Outline: Guidance is tailored based on applicable circumstances
     | Needs a certain amount of money now   |
     | Has poor health                       |
 
+@todo
 Scenario Outline: "Pension pot" section is tailored based on the range of income sources available to the customer
   Given the customer has access to income during retirement from <sources-of-income>
   When we send them their record of guidance
@@ -49,10 +51,14 @@ Scenario Outline: "Pension pot" section is tailored based on the range of income
     | multiple sources                    |
     | only their DC pot and state pension |
 
+@todo
 Scenario: Records of guidance include the information provided to us by the customer
   Given we have captured the customer's details in an appointment summary
   When we send them their record of guidance
   Then the record of guidance should include their details
 
+@todo
 Scenario: Reference numbers
+
+@todo
 Scenario: Page numbers
