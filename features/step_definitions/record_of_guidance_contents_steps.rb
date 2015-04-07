@@ -47,7 +47,7 @@ Then(/^the sections it includes should be \(in order\):$/) do |table|
   end
 
   section_indexes = sections
-                    .map { |s| "<!-- section: #{s} -->" }
+                    .map { |s| "<!-- section: #{s}" }
                     .map { |s| page.source.index(s) }
 
   expect(section_indexes.sort).to eq(section_indexes)
