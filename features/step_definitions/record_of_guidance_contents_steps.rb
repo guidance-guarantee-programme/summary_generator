@@ -110,9 +110,12 @@ Then(/^the "pension pot" section should be the "(.*?)" version$/) do |version|
 end
 
 Given(/^we have captured the customer's details in an appointment summary$/) do
-  pending
+  @appointment_summary = fixture(:populated_appointment_summary)
 end
 
 Then(/^the record of guidance should include their details$/) do
-  pending
+  output_document = OutputDocument.new(@appointment_summary)
+
+  expect(page).to have_content(output_document.attendee_name)
+  expect(page).to have_content(output_document.value_of_pension_pots)
 end
