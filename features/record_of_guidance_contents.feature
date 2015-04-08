@@ -53,6 +53,11 @@ Scenario: Records of guidance include the information provided to us by the cust
   When we send them their record of guidance
   Then the record of guidance should include their details
 
+Scenario: Records of guidance include information about the appointment
+  Given we have captured appointment details in an appointment summary
+  When we send a record of guidance
+  Then the record of guidance should include the details of the appointment
+
 @todo
 Scenario: Reference numbers
 
