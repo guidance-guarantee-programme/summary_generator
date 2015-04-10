@@ -10,4 +10,9 @@ end
 
 Then(/^we should send them an ineligibility letter$/) do
   expect(page.source).to include('<!-- section: ineligible -->')
+
+  output_document = OutputDocument.new(@appointment_summary)
+  expect(page).to have_content(output_document.attendee_address)
+  expect(page).to have_content(output_document.attendee_name)
+  expect(page).to have_content(output_document.lead)
 end
