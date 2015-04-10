@@ -3,7 +3,7 @@ Given(/^a customer has had a Pension Wise appointment$/) do
 end
 
 Then(/^it should include a covering letter$/) do
-  expect(page.source).to include('<!-- section: cover letter -->')
+  expect(page.source).to include('<!-- section: covering letter -->')
 
   output_document = OutputDocument.new(@appointment_summary)
   expect(page).to have_content(output_document.attendee_address)
