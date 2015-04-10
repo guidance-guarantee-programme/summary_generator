@@ -1,11 +1,13 @@
 Given(/^the customer doesn't have a defined contribution pension pot$/) do
-  pending # express the regexp above with the code you wish you had
+  @appointment_summary = fixture(:populated_appointment_summary).tap do |as|
+    as.has_defined_contribution_pension = 'no'
+  end
 end
 
 When(/^they have had a Pension Wise appointment$/) do
-  pending # express the regexp above with the code you wish you had
+  step('we send them their record of guidance')
 end
 
 Then(/^we should send them an ineligibility letter$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page.source).to include('<!-- section: ineligible -->')
 end
