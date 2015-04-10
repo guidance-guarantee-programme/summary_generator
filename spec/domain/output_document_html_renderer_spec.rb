@@ -73,7 +73,7 @@ RSpec.describe OutputDocument::HTMLRenderer do
   end
 
   describe '#render' do
-    let(:cover_letter_text) { 't-cover-letter' }
+    let(:cover_letter_text) { 't-covering-letter' }
     let(:ineligible_text) { 't-ineligible' }
     let(:generic_guidance_text) { 't-generic' }
     let(:continue_working_text) { 't-continue-working' }
