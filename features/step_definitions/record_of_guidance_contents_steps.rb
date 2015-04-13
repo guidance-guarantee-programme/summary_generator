@@ -46,11 +46,7 @@ Then(/^the sections it includes should be \(in order\):$/) do |table|
     sections.flatten!
   end
 
-  section_indexes = sections
-                    .map { |s| "<!-- section: #{s}" }
-                    .map { |s| page.source.index(s) }
-
-  expect(section_indexes.sort).to eq(section_indexes)
+  expect(page).to include_output_document_sections(sections)
 end
 
 Given(/^"(.*?)" applies to the customer$/) do |circumstance|
@@ -77,16 +73,16 @@ end
 
 Then(/^it should include information about "(.*?)"$/) do |circumstance|
   section = case circumstance
-            when 'Plans to continue working for a while' then '<!-- section: continue working -->'
-            when 'Unsure about plans in retirement'      then '<!-- section: unsure -->'
-            when 'Plans to leave money to someone'       then '<!-- section: leave inheritance -->'
-            when 'Wants flexibility when taking money'   then '<!-- section: wants flexibility -->'
-            when 'Wants a guaranteed income'             then '<!-- section: wants security -->'
-            when 'Needs a certain amount of money now'   then '<!-- section: wants lump sum -->'
-            when 'Has poor health'                       then '<!-- section: poor health -->'
+            when 'Plans to continue working for a while' then 'continue working'
+            when 'Unsure about plans in retirement'      then 'unsure'
+            when 'Plans to leave money to someone'       then 'leave inheritance'
+            when 'Wants flexibility when taking money'   then 'wants flexibility'
+            when 'Wants a guaranteed income'             then 'wants security'
+            when 'Needs a certain amount of money now'   then 'wants lump sum'
+            when 'Has poor health'                       then 'poor health'
             end
 
-  expect(page.source).to include(section)
+  expect(page).to include_output_document_section(section)
 end
 
 Given(/^the customer has access to income during retirement from (.*?)$/) do |sources_of_income|
@@ -104,9 +100,7 @@ Then(/^the "pension pot" section should be the "(.*?)" version$/) do |version|
             when 'multiple sources'                    then 'other'
             end
 
-  section_identifier = '<!-- section: pension pot'
-  expect(page.source.scan(/#{section_identifier}/).count).to eq(1)
-  expect(page.source).to include("#{section_identifier}, version: #{version} -->")
+  expect(page).to include_output_document_section('pension pot').at_version(version)
 end
 
 Given(/^we have captured the customer's details in an appointment summary$/) do

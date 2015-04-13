@@ -9,7 +9,7 @@ When(/^they have had a Pension Wise appointment$/) do
 end
 
 Then(/^we should send them an ineligibility letter$/) do
-  expect(page.source).to include('<!-- section: ineligible -->')
+  expect(page).to include_output_document_section('ineligible')
 
   output_document = OutputDocument.new(@appointment_summary)
   expect(page).to have_content(output_document.attendee_address)
