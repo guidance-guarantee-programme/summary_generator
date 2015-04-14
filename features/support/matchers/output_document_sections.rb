@@ -5,7 +5,11 @@ module OutputDocumentSectionsMatchers
     def section_match_expression(section)
       section = Regexp.escape(section)
 
-      Regexp.new("<!-- section: #{section}(?:, version: (.+?))? -->")
+      /<!-- section: #{section}(?:, version: (.*))? -->/
+    end
+
+    def section_capture_expression
+      /<!-- section: (.*?)(?:, version: (.*?))? -->/
     end
   end
 
@@ -53,11 +57,16 @@ module OutputDocumentSectionsMatchers
         page.source =~ section_match_expression(section)
       end
 
-      section_indexes.sort == section_indexes
+      !section_indexes.any?(&:nil?) && section_indexes.sort == section_indexes
     end
 
     failure_message do
-      "expected page to include output document sections (in order): #{sections}"
+      actual_sections = page.source.scan(section_capture_expression).map(&:first)
+
+      "expected page to include output document sections (in order):\n" \
+      "  #{sections}\n\n" \
+      "page contained:\n" \
+      "  #{actual_sections}\n\n"
     end
   end
 end
