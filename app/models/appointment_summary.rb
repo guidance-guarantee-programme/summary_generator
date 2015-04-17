@@ -38,7 +38,7 @@ class AppointmentSummary
 
   validates :title, presence: true, inclusion: { in: TITLES, allow_blank: true }
   validates :last_name, presence: true
-  validates :date_of_appointment, timeliness: { on_or_before: -> { Date.current },
+  validates :date_of_appointment, timeliness: { on_or_before: -> { Time.zone.today },
                                                 on_or_after: Date.new(2015),
                                                 type: :date }
 

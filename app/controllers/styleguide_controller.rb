@@ -44,7 +44,7 @@ class StyleguideController < ApplicationController
 
   def render_output_document(eligible_for_guidance: true, custom_guidance: true, generic_guidance: false)
     appointment_summary = AppointmentSummary.new(
-      eligible_for_guidance, Date.today, 'Jimmy', 'Pension Wise', 'Mr', 'Joe',
+      eligible_for_guidance, Time.zone.today, 'Jimmy', 'Pension Wise', 'Mr', 'Joe',
       'Bloggs', 35_000, nil, 'pension', custom_guidance, custom_guidance, false,
       false, false, false, false, false, generic_guidance, '73c', 'Burmah St',
       'Belfast', 'Antrim', 'BT9 1HA'
