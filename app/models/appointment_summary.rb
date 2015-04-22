@@ -7,7 +7,7 @@ class AppointmentSummary
                 :upper_value_of_pension_pots, :value_of_pension_pots_is_approximate,
                 :guider_name, :guider_organisation,
                 :address_line_1, :address_line_2, :address_line_3, :county, :town, :postcode,
-                :continue_working, :unsure, :leave_inheritance,
+                :country, :continue_working, :unsure, :leave_inheritance,
                 :wants_flexibility, :wants_security,
                 :wants_lump_sum, :poor_health,
                 :has_defined_contribution_pension
@@ -20,6 +20,10 @@ class AppointmentSummary
     end
 
     alias_method(:"#{predicate_method}?", predicate_method)
+  end
+
+  def initialize(params = {})
+    super(params.reverse_merge(country: Countries.uk))
   end
 
   def date_of_appointment
@@ -60,6 +64,7 @@ class AppointmentSummary
   validates :address_line_1, presence: true
   validates :town, presence: true
   validates :postcode, presence: true
+  validates :country, presence: true, inclusion: { in: Countries.all }
 
   validates :has_defined_contribution_pension,
             presence: true,
