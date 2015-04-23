@@ -9,6 +9,7 @@ RSpec.describe OutputDocument do
   let(:address_line_3) { 'Whitehall' }
   let(:town) { 'London' }
   let(:county) { '' }
+  let(:country) { 'United Kingdom' }
   let(:postcode) { 'SW1A 2HQ' }
   let(:output_document) { described_class.new(appointment_summary) }
   let(:attendee_name) { "#{title} #{first_name} #{last_name}" }
@@ -28,6 +29,7 @@ RSpec.describe OutputDocument do
       address_line_3: address_line_3,
       town: town,
       county: county,
+      country: country,
       postcode: postcode,
       date_of_appointment: date_of_appointment,
       value_of_pension_pots: value_of_pension_pots,
@@ -58,16 +60,20 @@ RSpec.describe OutputDocument do
     context 'when lines are blank' do
       let(:address_line_3) { '' }
 
-      it { is_expected.to eq("Mr Joe Bloggs\nHM Treasury\n1 Horse Guards Road\nLondon\nSW1A 2HQ") }
+      it do
+        is_expected.to eq("Mr Joe Bloggs\nHM Treasury\n1 Horse Guards Road\n" \
+                          "London\nSW1A 2HQ\nUnited Kingdom")
+      end
     end
 
     context 'when lines contain leading or tailing whitespace' do
       let(:address_line_2) { '1 Horse Guards Road            ' }
       let(:address_line_3) { '' }
       let(:town) { '               London' }
+      let(:country) { '    United     Kingdom    ' }
       let(:postcode) { 'SW1A                         2HQ' }
 
-      it { is_expected.to eq("Mr Joe Bloggs\nHM Treasury\n1 Horse Guards Road\nLondon\nSW1A 2HQ") }
+      it { is_expected.to eq("Mr Joe Bloggs\nHM Treasury\n1 Horse Guards Road\nLondon\nSW1A 2HQ\nUnited Kingdom") }
     end
   end
 

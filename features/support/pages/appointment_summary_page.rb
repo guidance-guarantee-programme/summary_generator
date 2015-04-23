@@ -9,6 +9,7 @@ class AppointmentSummaryPage < SitePrism::Page
   element :address_line_3, '.t-address-line-3'
   element :town, '.t-town'
   element :county, '.t-county'
+  element :country, '.t-country'
   element :postcode, '.t-postcode'
   element :date_of_appointment, '.t-date-of-appointment'
   element :value_of_pension_pots, '.t-value-of-pension-pots'
@@ -53,6 +54,7 @@ class AppointmentSummaryPage < SitePrism::Page
     address_line_3.set appointment_summary.address_line_3
     town.set appointment_summary.town
     county.set appointment_summary.county
+    country.select appointment_summary.country
     postcode.set appointment_summary.postcode
   end
   # rubocop:enable AbcSize
