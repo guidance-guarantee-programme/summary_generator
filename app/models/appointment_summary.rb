@@ -34,7 +34,7 @@ class AppointmentSummary
     Float.parse(@upper_value_of_pension_pots) rescue @upper_value_of_pension_pots
   end
 
-  TITLES = %w(Mr Mrs Miss Ms Mx Dr)
+  TITLES = %w(Mr Mrs Miss Ms Mx Dr Reverend)
 
   validates :title, presence: true, inclusion: { in: TITLES, allow_blank: true }
   validates :last_name, presence: true
