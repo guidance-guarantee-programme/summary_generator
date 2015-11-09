@@ -1,14 +1,4 @@
 GIT
-  remote: https://github.com/andrewgarner/govuk_admin_template.git
-  revision: c0ba6e52dbd76236aaab8705838ae4da008aace8
-  branch: configurable-analytics
-  specs:
-    govuk_admin_template (2.1.0)
-      bootstrap-sass (~> 3.3.3)
-      jquery-rails (~> 3.1.1)
-      rails (>= 3.2.0)
-
-GIT
   remote: https://github.com/guidance-guarantee-programme/output-templates.git
   revision: c2cdd85444eb96cb16f6548cdc020df65753f852
   specs:
@@ -57,18 +47,18 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     afm (0.2.2)
-    arel (6.0.0)
+    arel (6.0.3)
     ast (2.0.0)
     astrolabe (1.3.0)
       parser (>= 2.2.0.pre.3, < 3.0)
-    autoprefixer-rails (5.1.9)
+    autoprefixer-rails (6.1.0.1)
       execjs
       json
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.3.4.1)
+    bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.2.19)
+      sass (>= 3.3.0)
     bugsnag (2.8.4)
       multi_json (~> 1.0)
     builder (3.2.2)
@@ -94,35 +84,39 @@ GEM
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
-    execjs (2.5.2)
+    execjs (2.6.0)
     foreman (0.78.0)
       thor (~> 0.19.1)
     gaffe (1.0.2)
       rails (>= 3.2.0)
     gherkin (2.12.2)
       multi_json (~> 1.3)
-    globalid (0.3.5)
+    globalid (0.3.6)
       activesupport (>= 4.1.0)
+    govuk_admin_template (3.3.1)
+      bootstrap-sass (~> 3.3.3)
+      jquery-rails (~> 3.1.3)
+      rails (>= 3.2.0)
     hashery (2.1.1)
     i18n (0.7.0)
     jc-validates_timeliness (3.1.1)
       timeliness (~> 0.3.7)
-    jquery-rails (3.1.2)
+    jquery-rails (3.1.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    json (1.8.2)
+    json (1.8.3)
     launchy (2.4.3)
       addressable (~> 2.3)
-    loofah (2.0.1)
+    loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     meta-tags (2.0.0)
       actionpack (>= 3.0.0)
     method_source (0.8.2)
-    mime-types (2.4.3)
+    mime-types (2.6.2)
     mini_portile (0.6.2)
-    minitest (5.6.0)
+    minitest (5.8.2)
     multi_json (1.11.0)
     multi_test (0.1.2)
     nokogiri (1.6.6.2)
@@ -147,7 +141,7 @@ GEM
       pry (>= 0.9.10)
     puma (2.11.2)
       rack (>= 1.1, < 2.0)
-    rack (1.6.0)
+    rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.2)
@@ -163,7 +157,7 @@ GEM
       sprockets-rails
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
-    rails-dom-testing (1.0.6)
+    rails-dom-testing (1.0.7)
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
@@ -209,7 +203,7 @@ GEM
       ruby-progressbar (~> 1.4)
     ruby-progressbar (1.7.5)
     ruby-rc4 (0.1.5)
-    sass (3.4.13)
+    sass (3.4.19)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -230,9 +224,9 @@ GEM
       spring (>= 0.9.1)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
-    sprockets (3.0.1)
-      rack (~> 1.0)
-    sprockets-rails (2.2.4)
+    sprockets (3.4.0)
+      rack (> 1, < 3)
+    sprockets-rails (2.3.3)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
@@ -263,7 +257,7 @@ DEPENDENCIES
   cucumber-rails
   foreman
   gaffe
-  govuk_admin_template!
+  govuk_admin_template
   jc-validates_timeliness
   launchy
   meta-tags
@@ -286,3 +280,6 @@ DEPENDENCIES
   spring-commands-rspec
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.6
