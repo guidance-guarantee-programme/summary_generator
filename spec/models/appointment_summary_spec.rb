@@ -16,10 +16,17 @@ RSpec.describe AppointmentSummary, type: :model do
   it { is_expected.to validate_inclusion_of(:title).in_array(%w(Mr Mrs Miss Ms Mx Dr Reverend)) }
   it { is_expected.to_not allow_value('Alien').for(:title) }
 
-  it { is_expected.to allow_value('2015-02-10').for(:date_of_appointment) }
-  it { is_expected.to allow_value('12/02/2015').for(:date_of_appointment) }
-  it { is_expected.to_not allow_value('10/02/2012').for(:date_of_appointment) }
-  it { is_expected.to_not allow_value(Time.zone.tomorrow.to_s).for(:date_of_appointment) }
+  it do
+    is_expected.to(allow_values('2015-02-10', '12/02/2015')
+                     .for(:date_of_appointment)
+                     .ignoring_interference_by_writer)
+  end
+
+  it do
+    is_expected.to_not(allow_values('10/02/2012', Time.zone.tomorrow.to_s)
+                         .for(:date_of_appointment)
+                         .ignoring_interference_by_writer)
+  end
 
   it { is_expected.to_not validate_presence_of(:value_of_pension_pots) }
   it { is_expected.to validate_numericality_of(:value_of_pension_pots) }

@@ -38,7 +38,7 @@ end
 group :test do
   gem 'cucumber-rails', require: false
   gem 'pdf-inspector', require: 'pdf/inspector'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 3.0'
   gem 'site_prism'
 end
 
