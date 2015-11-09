@@ -17,5 +17,9 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Max: 15
 
+Metrics/ModuleLength:
+  Exclude:
+    - 'app/models/countries.rb'
+
 Style/RescueModifier:
   Enabled: false
