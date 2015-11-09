@@ -12,7 +12,7 @@ Generate [Pension Wise] appointment output in PDF format only.
 * [Node.js][Node]
 * [PrinceXML]
 * [NPM]
-* [Ruby 2.2.2][Ruby]
+* [Ruby 2.2.3][Ruby]
 
 
 ## Installation
