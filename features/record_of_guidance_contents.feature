@@ -8,20 +8,9 @@ Scenario: Generic record of guidance
   When we send them their record of guidance
   Then the sections it includes should be (in order):
     | introduction             |
-    | pension pot              |
     | options overview         |
     | detail about each option |
     | other information        |
-
-Scenario Outline: "Pension pot" section is tailored based on the range of income sources available to the customer
-  Given the customer has access to income during retirement from <sources-of-income>
-  When we send them their record of guidance
-  Then the "pension pot" section should be the "<sources-of-income>" version
-
-  Examples:
-    | sources-of-income                   |
-    | multiple sources                    |
-    | only their DC pot and state pension |
 
 Scenario: Records of guidance include the information provided to us by the customer
   Given we have captured the customer's details in an appointment summary

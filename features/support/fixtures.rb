@@ -17,10 +17,6 @@ module Fixtures
         country: 'United Kingdom',
         postcode: 'SW1A 2HQ',
         date_of_appointment: '2015-02-05',
-        value_of_pension_pots: 35_000,
-        upper_value_of_pension_pots: 55_000,
-        value_of_pension_pots_is_approximate: true,
-        income_in_retirement: 'pension',
         guider_name: 'Penelope',
         guider_organisation: 'cita',
         has_defined_contribution_pension: 'yes'

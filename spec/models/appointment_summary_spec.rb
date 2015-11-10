@@ -26,16 +26,6 @@ RSpec.describe AppointmentSummary, type: :model do
                          .ignoring_interference_by_writer)
   end
 
-  it { is_expected.to_not validate_presence_of(:value_of_pension_pots) }
-  it { is_expected.to validate_numericality_of(:value_of_pension_pots) }
-  it { is_expected.to allow_value('').for(:value_of_pension_pots) }
-
-  it { is_expected.to_not validate_presence_of(:upper_value_of_pension_pots) }
-  it { is_expected.to validate_numericality_of(:upper_value_of_pension_pots) }
-  it { is_expected.to allow_value('').for(:upper_value_of_pension_pots) }
-
-  it { is_expected.to validate_inclusion_of(:income_in_retirement).in_array(%w(pension other)) }
-
   it { is_expected.to validate_presence_of(:guider_name) }
   it { is_expected.to validate_inclusion_of(:guider_organisation).in_array(%w(cita nicab)) }
 
@@ -104,27 +94,12 @@ RSpec.describe AppointmentSummary, type: :model do
         expect(get).to be(false)
       end
     end
-
-    describe 'value_of_pension_pots_is_approximate' do
-      let(:field) { :value_of_pension_pots_is_approximate }
-      it_should_behave_like 'a boolean field'
-    end
   end
 
   context 'when ineligible for guidance' do
     let(:has_defined_contribution_pension) { 'no' }
 
     it { is_expected.to_not be_eligible_for_guidance }
-
-    it { is_expected.to_not validate_presence_of(:value_of_pension_pots) }
-    it { is_expected.to_not validate_presence_of(:upper_value_of_pension_pots) }
-
-    it { is_expected.to_not validate_numericality_of(:value_of_pension_pots) }
-    it { is_expected.to_not validate_numericality_of(:upper_value_of_pension_pots) }
-
-    it do
-      is_expected.to_not validate_inclusion_of(:income_in_retirement).in_array(%w(pension other))
-    end
   end
 
   context 'when eligible for guidance' do

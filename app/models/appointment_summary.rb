@@ -3,8 +3,6 @@ class AppointmentSummary
 
   attr_accessor :title, :first_name, :last_name,
                 :date_of_appointment,
-                :value_of_pension_pots, :income_in_retirement,
-                :upper_value_of_pension_pots, :value_of_pension_pots_is_approximate,
                 :guider_name, :guider_organisation,
                 :address_line_1, :address_line_2, :address_line_3, :county, :town, :postcode,
                 :country, :has_defined_contribution_pension
@@ -13,22 +11,8 @@ class AppointmentSummary
     super(params.reverse_merge(country: Countries.uk))
   end
 
-  def value_of_pension_pots_is_approximate=(value)
-    @value_of_pension_pots_is_approximate = [true, 'true', '1', 1].member?(value)
-  end
-
-  alias_method(:value_of_pension_pots_is_approximate?, :value_of_pension_pots_is_approximate)
-
   def date_of_appointment
     Date.parse(@date_of_appointment) rescue @date_of_appointment
-  end
-
-  def value_of_pension_pots
-    Float.parse(@value_of_pension_pots) rescue @value_of_pension_pots
-  end
-
-  def upper_value_of_pension_pots
-    Float.parse(@upper_value_of_pension_pots) rescue @upper_value_of_pension_pots
   end
 
   TITLES = %w(Mr Mrs Miss Ms Mx Dr Reverend)
@@ -39,12 +23,6 @@ class AppointmentSummary
                                                 on_or_after: Date.new(2015),
                                                 type: :date }
 
-  with_options numericality: true, allow_blank: true, if: :eligible_for_guidance? do |eligible|
-    eligible.validates :value_of_pension_pots
-    eligible.validates :upper_value_of_pension_pots
-  end
-
-  validates :income_in_retirement, inclusion: { in: %w(pension other) }, if: :eligible_for_guidance?
   validates :guider_name, presence: true
   validates :guider_organisation,
             presence: true,

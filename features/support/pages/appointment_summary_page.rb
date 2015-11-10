@@ -12,11 +12,6 @@ class AppointmentSummaryPage < SitePrism::Page
   element :country, '.t-country'
   element :postcode, '.t-postcode'
   element :date_of_appointment, '.t-date-of-appointment'
-  element :value_of_pension_pots, '.t-value-of-pension-pots'
-  element :upper_value_of_pension_pots, '.t-upper-value-of-pension-pots'
-  element :value_of_pension_pots_is_approximate, '.t-value-of-pension-pots-is-approximate'
-  element :income_in_retirement_pension, '.t-income-in-retirement-pension'
-  element :income_in_retirement_other, '.t-income-in-retirement-other'
   element :guider_name, '.t-guider-name'
   element :guider_organisation_nicab, '.t-guider-organisation-nicab'
   element :guider_organisation_cita, '.t-guider-organisation-cita'
@@ -28,8 +23,6 @@ class AppointmentSummaryPage < SitePrism::Page
   def fill_in(appointment_summary)
     fill_in_customer_details(appointment_summary)
     fill_in_appointment_audit_details(appointment_summary)
-    fill_in_pension_pot_details(appointment_summary)
-    fill_in_income_in_retirement_details(appointment_summary)
     fill_in_guider_details(appointment_summary)
     fill_in_has_defined_contribution_pension(appointment_summary)
   end
@@ -53,19 +46,6 @@ class AppointmentSummaryPage < SitePrism::Page
 
   def fill_in_appointment_audit_details(appointment_summary)
     date_of_appointment.set appointment_summary.date_of_appointment
-  end
-
-  def fill_in_pension_pot_details(appointment_summary)
-    value_of_pension_pots.set appointment_summary.value_of_pension_pots
-    upper_value_of_pension_pots.set appointment_summary.upper_value_of_pension_pots
-    value_of_pension_pots_is_approximate.set appointment_summary.value_of_pension_pots_is_approximate?
-  end
-
-  def fill_in_income_in_retirement_details(appointment_summary)
-    case appointment_summary.income_in_retirement
-    when 'pension' then income_in_retirement_pension.set true
-    when 'other' then income_in_retirement_other.set true
-    end
   end
 
   def fill_in_guider_details(appointment_summary)

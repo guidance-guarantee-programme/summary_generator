@@ -13,10 +13,7 @@ RSpec.describe OutputDocument do
   let(:postcode) { 'SW1A 2HQ' }
   let(:output_document) { described_class.new(appointment_summary) }
   let(:attendee_name) { "#{title} #{first_name} #{last_name}" }
-  let(:value_of_pension_pots) { nil }
-  let(:upper_value_of_pension_pots) { nil }
   let(:guider_organisation) { 'cita' }
-  let(:value_of_pension_pots_is_approximate) { false }
   let(:guider_name) { 'James' }
   let(:date_of_appointment) { Date.new(2015, 3, 30) }
   let(:params) do
@@ -32,10 +29,6 @@ RSpec.describe OutputDocument do
       country: country,
       postcode: postcode,
       date_of_appointment: date_of_appointment,
-      value_of_pension_pots: value_of_pension_pots,
-      upper_value_of_pension_pots: upper_value_of_pension_pots,
-      value_of_pension_pots_is_approximate: value_of_pension_pots_is_approximate,
-      income_in_retirement: :pension,
       guider_name: guider_name,
       guider_organisation: guider_organisation
     }
@@ -105,37 +98,6 @@ RSpec.describe OutputDocument do
       let(:guider_organisation) { 'nicab' }
 
       it { is_expected.to eq('Citizens Advice Bureau Northern Ireland') }
-    end
-  end
-
-  describe '#value_of_pension_pots' do
-    subject { output_document.value_of_pension_pots }
-
-    context 'with one pension pot value' do
-      let(:value_of_pension_pots) { 35_000 }
-      let(:upper_value_of_pension_pots) { nil }
-
-      it { is_expected.to eq('£35,000') }
-
-      context 'and it is approximate' do
-        let(:value_of_pension_pots_is_approximate) { true }
-
-        it { is_expected.to eq('£35,000 (approximately)') }
-      end
-    end
-
-    context 'with two pension pot values' do
-      let(:value_of_pension_pots) { 35_000 }
-      let(:upper_value_of_pension_pots) { 55_000 }
-
-      it { is_expected.to eq('£35,000 to £55,000') }
-    end
-
-    context 'with no pension pot values' do
-      let(:value_of_pension_pots) { nil }
-      let(:upper_value_of_pension_pots) { nil }
-
-      it { is_expected.to eq('No value given') }
     end
   end
 

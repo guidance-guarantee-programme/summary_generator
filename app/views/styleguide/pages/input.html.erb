@@ -188,47 +188,6 @@
     </fieldset>
   </div>
 
-  <div class="display_if_eligible">
-    <div class="row">
-      <div class="col-md-8" id="col-pension-pot-value">
-        <div class="form-group form-inline">
-          <label for="appointment_summary_value_of_pension_pots">
-            Value of pension pots
-            <span class="input-help">Only use numbers, don't include pence, e.g 27500</span>
-          </label><br />
-          £ <input placeholder="27500" class="form-control input-md-2 js-numbers-only" type="text" name="appointment_summary[value_of_pension_pots]" id="appointment_summary_value_of_pension_pots" />
-
-          <span class="display_if_range">
-            to
-            <label for="appointment_summary_value_of_pension_pots_max" class="visuallyhidden">Max value of pension pots (optional)</label>
-            £ <input class="form-control input-md-2 js-numbers-only" type="text" name="appointment_summary[value_of_pension_pots]" id="appointment_summary_value_of_pension_pots_max" />
-            <span class="hide-with-js"> (optional)</span>
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <fieldset>
-        <legend>
-          <span>Sources of income in retirement</span>
-        </legend>
-        <div class="radio">
-          <label for="appointment_summary_income_in_retirement_pension">
-            <input class="t-income-in-retirement-pension" type="radio" value="pension" name="appointment_summary[income_in_retirement]" id="appointment_summary_income_in_retirement_pension" />
-            Only defined contribution pension(s) and State Pension (if eligible)
-          </label>
-        </div>
-        <div class="radio">
-          <label for="appointment_summary_income_in_retirement_other">
-            <input class="t-income-in-retirement-other" type="radio" value="other" name="appointment_summary[income_in_retirement]" id="appointment_summary_income_in_retirement_other" />
-            Other income is available
-          </label>
-        </div>
-      </fieldset>
-    </div>
-  </div>
-
   <hr>
 
   <h2>Record of guidance</h2>
@@ -281,60 +240,6 @@
     <button class="btn-success btn-sm" onclick="return false" id="postcode-lookup-button">Find UK address</button>
   </div>
   <div class="form-group form-inline" id="postcode-lookup-results-container">
-  </div>
-</script>
-
-<script type="text/html" id="pension-pot-accuracy">
-  <div class="col-md-3 col-accuracy">
-    <div class="form-group">
-      <fieldset>
-        <legend>
-          <span>How accurate is the value given by the visitor?</span>
-        </legend>
-        <div class="radio">
-          <label for="appointment_summary_accuracy_1">
-            <input class="t-income-in-retirement-pension" checked="checked" type="radio" value="exact" name="appointment_summary[accuracy]" id="appointment_summary_accuracy_1" />
-            Exact
-          </label>
-        </div>
-        <div class="radio">
-          <label for="appointment_summary_accuracy_2">
-            <input class="t-income-in-retirement-other" type="radio" value="approximate" name="appointment_summary[accuracy]" id="appointment_summary_accuracy_2" />
-            Approximate
-          </label>
-        </div>
-        <div class="radio">
-          <label for="appointment_summary_accuracy_3">
-            <input class="t-income-in-retirement-other" type="radio" value="range" name="appointment_summary[accuracy]" id="appointment_summary_accuracy_3" />
-            A range
-        </label>
-        </div>
-        <div class="radio">
-          <label for="appointment_summary_accuracy_4">
-            <input class="t-income-in-retirement-other" type="radio" value="notprovided" name="appointment_summary[accuracy]" id="appointment_summary_accuracy_4" />
-            Not provided
-          </label>
-        </div>
-      </fieldset>
-    </div>
-  </div>
-</script>
-
-<script type="text/html" id="pension-pot-input-error">
-  <span id="errmsg" class="error"></span>
-</script>
-
-<script type="text/html" id="pension-pot-preview">
-  <div class="preview">
-    <div class="preview__context">Document preview</div>
-    <p class="preview__heading">What you told us about your pension pot</p>
-
-    <p class="preview__intro">This is your personal or workplace pension based on how much has been paid<br />
-      into your pot (defined contribution pension).</p>
-
-    <p class="preview__label">Total value of your pension pot:</p>
-    <p class="preview__amount">£</p>
-    <p class="preview__note">If you have more than one pot this is their combined value.</p>
   </div>
 </script>
 

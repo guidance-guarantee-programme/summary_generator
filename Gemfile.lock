@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/guidance-guarantee-programme/output-templates.git
-  revision: 874638a42b123a9788680497c58570e08ca306e3
+  revision: 283b1d7f1b6e2ce201d97227c5d64543dce74eb4
   branch: 2-0
   specs:
     output-templates (2.0.0.pre)
