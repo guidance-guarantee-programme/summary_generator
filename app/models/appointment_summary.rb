@@ -7,24 +7,17 @@ class AppointmentSummary
                 :upper_value_of_pension_pots, :value_of_pension_pots_is_approximate,
                 :guider_name, :guider_organisation,
                 :address_line_1, :address_line_2, :address_line_3, :county, :town, :postcode,
-                :country, :continue_working, :unsure, :leave_inheritance,
-                :wants_flexibility, :wants_security,
-                :wants_lump_sum, :poor_health,
-                :has_defined_contribution_pension
-
-  %i(continue_working unsure leave_inheritance wants_flexibility wants_security
-     wants_lump_sum poor_health value_of_pension_pots_is_approximate).each do |predicate_method|
-    define_method("#{predicate_method}=") do |value|
-      boolean = [true, 'true', '1', 1].member?(value)
-      instance_variable_set("@#{predicate_method}", boolean)
-    end
-
-    alias_method(:"#{predicate_method}?", predicate_method)
-  end
+                :country, :has_defined_contribution_pension
 
   def initialize(params = {})
     super(params.reverse_merge(country: Countries.uk))
   end
+
+  def value_of_pension_pots_is_approximate=(value)
+    @value_of_pension_pots_is_approximate = [true, 'true', '1', 1].member?(value)
+  end
+
+  alias_method(:value_of_pension_pots_is_approximate?, :value_of_pension_pots_is_approximate)
 
   def date_of_appointment
     Date.parse(@date_of_appointment) rescue @date_of_appointment
@@ -77,22 +70,4 @@ class AppointmentSummary
   def eligible_for_guidance?
     %w(yes unknown).include?(has_defined_contribution_pension)
   end
-
-  def generic_guidance?
-    eligible_for_guidance? && !retirement_circumstances?
-  end
-
-  def custom_guidance?
-    eligible_for_guidance? && retirement_circumstances?
-  end
-
-  private
-
-  # rubocop:disable CyclomaticComplexity
-  def retirement_circumstances?
-    continue_working? || unsure? || leave_inheritance? || \
-      wants_flexibility? || wants_security? || wants_lump_sum? || \
-      poor_health?
-  end
-  # rubocop:enable CyclomaticComplexity
 end

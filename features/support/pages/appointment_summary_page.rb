@@ -23,13 +23,6 @@ class AppointmentSummaryPage < SitePrism::Page
   element :has_defined_contribution_pension_yes, '.t-has-defined-contribution-pension-yes'
   element :has_defined_contribution_pension_no, '.t-has-defined-contribution-pension-no'
   element :has_defined_contribution_pension_unknown, '.t-has-defined-contribution-pension-unknown'
-  element :continue_working, '.t-continue-working'
-  element :unsure, '.t-unsure'
-  element :leave_inheritance, '.t-leave-inheritance'
-  element :wants_flexibility, '.t-wants-flexibility'
-  element :wants_security, '.t-wants-security'
-  element :wants_lump_sum, '.t-wants-lump-sum'
-  element :poor_health, '.t-poor-health'
   element :submit, '.t-submit'
 
   def fill_in(appointment_summary)
@@ -39,7 +32,6 @@ class AppointmentSummaryPage < SitePrism::Page
     fill_in_income_in_retirement_details(appointment_summary)
     fill_in_guider_details(appointment_summary)
     fill_in_has_defined_contribution_pension(appointment_summary)
-    fill_in_circumstances(appointment_summary)
   end
 
   private
@@ -91,16 +83,4 @@ class AppointmentSummaryPage < SitePrism::Page
     when 'unknown' then has_defined_contribution_pension_unknown.set true
     end
   end
-
-  # rubocop:disable AbcSize
-  def fill_in_circumstances(appointment_summary)
-    continue_working.set appointment_summary.continue_working?
-    unsure.set appointment_summary.unsure?
-    leave_inheritance.set appointment_summary.leave_inheritance?
-    wants_flexibility.set appointment_summary.wants_flexibility?
-    wants_security.set appointment_summary.wants_security?
-    wants_lump_sum.set appointment_summary.wants_lump_sum?
-    poor_health.set appointment_summary.poor_health?
-  end
-  # rubocop:enable AbcSize
 end

@@ -23,14 +23,7 @@ module Fixtures
         income_in_retirement: 'pension',
         guider_name: 'Penelope',
         guider_organisation: 'cita',
-        has_defined_contribution_pension: 'yes',
-        continue_working: true,
-        unsure: true,
-        leave_inheritance: true,
-        wants_flexibility: true,
-        wants_security: true,
-        wants_lump_sum: true,
-        poor_health: true
+        has_defined_contribution_pension: 'yes'
       )
     end
   }

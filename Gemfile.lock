@@ -1,8 +1,9 @@
 GIT
   remote: https://github.com/guidance-guarantee-programme/output-templates.git
-  revision: c2cdd85444eb96cb16f6548cdc020df65753f852
+  revision: 874638a42b123a9788680497c58570e08ca306e3
+  branch: 2-0
   specs:
-    output-templates (1.1.0)
+    output-templates (2.0.0.pre)
       actionview
       sass
 
@@ -260,7 +261,7 @@ DEPENDENCIES
   jc-validates_timeliness
   launchy
   meta-tags
-  output-templates (~> 1.0)!
+  output-templates (~> 2.0.pre)!
   pdf-inspector
   princely
   pry-rails

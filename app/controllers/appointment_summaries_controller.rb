@@ -36,10 +36,7 @@ class AppointmentSummariesController < ApplicationController
               :value_of_pension_pots, :income_in_retirement,
               :upper_value_of_pension_pots, :value_of_pension_pots_is_approximate,
               :guider_name, :guider_organisation,
-              :address_line_1, :address_line_2, :address_line_3, :county, :town, :postcode,
-              :country, :continue_working, :unsure, :leave_inheritance,
-              :wants_flexibility, :wants_security,
-              :wants_lump_sum, :poor_health,
+              :address_line_1, :address_line_2, :address_line_3, :county, :town, :postcode, :country,
               :has_defined_contribution_pension)
   end
 end

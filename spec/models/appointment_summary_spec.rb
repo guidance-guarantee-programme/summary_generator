@@ -2,11 +2,9 @@ require 'rails_helper'
 
 RSpec.describe AppointmentSummary, type: :model do
   subject do
-    described_class.new(continue_working: continue_working,
-                        has_defined_contribution_pension: has_defined_contribution_pension)
+    described_class.new(has_defined_contribution_pension: has_defined_contribution_pension)
   end
 
-  let(:continue_working) { false }
   let(:has_defined_contribution_pension) { 'yes' }
 
   it { is_expected.to validate_presence_of(:title) }
@@ -107,41 +105,6 @@ RSpec.describe AppointmentSummary, type: :model do
       end
     end
 
-    describe 'continue_working' do
-      let(:field) { :continue_working }
-      it_should_behave_like 'a boolean field'
-    end
-
-    describe 'unsure' do
-      let(:field) { :unsure }
-      it_should_behave_like 'a boolean field'
-    end
-
-    describe 'leave_inheritance' do
-      let(:field) { :leave_inheritance }
-      it_should_behave_like 'a boolean field'
-    end
-
-    describe 'wants_flexibility' do
-      let(:field) { :wants_flexibility }
-      it_should_behave_like 'a boolean field'
-    end
-
-    describe 'wants_security' do
-      let(:field) { :wants_security }
-      it_should_behave_like 'a boolean field'
-    end
-
-    describe 'wants_lump_sum' do
-      let(:field) { :wants_lump_sum }
-      it_should_behave_like 'a boolean field'
-    end
-
-    describe 'poor_health' do
-      let(:field) { :poor_health }
-      it_should_behave_like 'a boolean field'
-    end
-
     describe 'value_of_pension_pots_is_approximate' do
       let(:field) { :value_of_pension_pots_is_approximate }
       it_should_behave_like 'a boolean field'
@@ -152,8 +115,6 @@ RSpec.describe AppointmentSummary, type: :model do
     let(:has_defined_contribution_pension) { 'no' }
 
     it { is_expected.to_not be_eligible_for_guidance }
-    it { is_expected.to_not be_generic_guidance }
-    it { is_expected.to_not be_custom_guidance }
 
     it { is_expected.to_not validate_presence_of(:value_of_pension_pots) }
     it { is_expected.to_not validate_presence_of(:upper_value_of_pension_pots) }
@@ -169,18 +130,6 @@ RSpec.describe AppointmentSummary, type: :model do
   context 'when eligible for guidance' do
     let(:has_defined_contribution_pension) { 'yes' }
 
-    context 'and no retirement circumstances given' do
-      it { is_expected.to be_eligible_for_guidance }
-      it { is_expected.to be_generic_guidance }
-      it { is_expected.to_not be_custom_guidance }
-    end
-
-    context 'and retirement circumstances given' do
-      let(:continue_working) { true }
-
-      it { is_expected.to be_eligible_for_guidance }
-      it { is_expected.to_not be_generic_guidance }
-      it { is_expected.to be_custom_guidance }
-    end
+    it { is_expected.to be_eligible_for_guidance }
   end
 end
