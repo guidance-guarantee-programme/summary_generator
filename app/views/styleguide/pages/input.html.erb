@@ -218,6 +218,52 @@
     </fieldset>
   </div>
 
+  <hr>
+
+  <div class="display_if_eligible">
+    <h2>Supplementary information</h2>
+
+    <div class="form-group">
+      <legend>Does visitor need supplementary information about any of the following?</legend>
+
+      <div class="checkbox">
+        <label for="appointment_summary_supplementary_benefits">
+          <input class="t-supplementary-benefits" type="checkbox" value="1"
+                 name="appointment_summary[supplementary_benefits]"
+                 id="appointment_summary_supplementary_benefits"/>
+          Plans to continue working for a while
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label for="appointment_summary_debt">
+          <input class="t-supplementary-debt" type="checkbox" value="1"
+                 name="appointment_summary[supplementary_debt]"
+                 id="appointment_summary_supplementary_debt"/>
+          Debt and pensions
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label for="appointment_summary_ill_health">
+          <input class="t-supplementary-ill-health" type="checkbox" value="1"
+                 name="appointment_summary[supplementary_ill_health]"
+                 id="appointment_summary_supplementary_ill_health"/>
+          Pensions and ill health
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label for="supplementary_defined_benefit_pensions">
+          <input class="t-supplementary-defined-benefit-pensions" type="checkbox" value="1"
+                 name="appointment_summary[defined_benefit_pensions]"
+                 id="supplementary_defined_benefit_pensions"/>
+          Final salary or career average pensions
+        </label>
+      </div>
+    </div>
+  </div>
+
   <p>
     <input type="submit" name="commit" value="Submit" class="btn-success t-submit btn-lg" />
   </p>

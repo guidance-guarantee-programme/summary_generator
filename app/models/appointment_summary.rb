@@ -5,7 +5,19 @@ class AppointmentSummary
                 :date_of_appointment,
                 :guider_name, :guider_organisation,
                 :address_line_1, :address_line_2, :address_line_3, :county, :town, :postcode,
-                :country, :has_defined_contribution_pension
+                :country, :has_defined_contribution_pension,
+                :supplementary_benefits, :supplementary_debt, :supplementary_ill_health,
+                :supplementary_defined_benefit_pensions
+
+  %i(supplementary_benefits supplementary_debt
+     supplementary_ill_health supplementary_defined_benefit_pensions).each do |predicate_method|
+    define_method("#{predicate_method}=") do |value|
+      boolean = [true, 'true', '1', 1].member?(value)
+      instance_variable_set("@#{predicate_method}", boolean)
+    end
+
+    alias_method(:"#{predicate_method}?", predicate_method)
+  end
 
   def initialize(params = {})
     super(params.reverse_merge(country: Countries.uk))

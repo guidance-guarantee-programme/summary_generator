@@ -35,6 +35,8 @@ class AppointmentSummariesController < ApplicationController
               :date_of_appointment,
               :guider_name, :guider_organisation,
               :address_line_1, :address_line_2, :address_line_3, :county, :town, :postcode, :country,
-              :has_defined_contribution_pension)
+              :has_defined_contribution_pension,
+              :supplementary_benefits, :supplementary_debt,
+              :supplementary_ill_health, :supplementary_defined_benefit_pensions)
   end
 end

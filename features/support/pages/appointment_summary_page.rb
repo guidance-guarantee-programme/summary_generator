@@ -18,6 +18,10 @@ class AppointmentSummaryPage < SitePrism::Page
   element :has_defined_contribution_pension_yes, '.t-has-defined-contribution-pension-yes'
   element :has_defined_contribution_pension_no, '.t-has-defined-contribution-pension-no'
   element :has_defined_contribution_pension_unknown, '.t-has-defined-contribution-pension-unknown'
+  element :supplementary_benefits, '.t-supplementary-benefits'
+  element :supplementary_debt, '.t-supplementary-debt'
+  element :supplementary_ill_health, '.t-supplementary-ill-health'
+  element :supplementary_defined_benefit_pensions, '.t-supplementary-defined-benefit-pensions'
   element :submit, '.t-submit'
 
   def fill_in(appointment_summary)
@@ -25,6 +29,7 @@ class AppointmentSummaryPage < SitePrism::Page
     fill_in_appointment_audit_details(appointment_summary)
     fill_in_guider_details(appointment_summary)
     fill_in_has_defined_contribution_pension(appointment_summary)
+    fill_in_supplementary_information(appointment_summary)
   end
 
   private
@@ -62,5 +67,12 @@ class AppointmentSummaryPage < SitePrism::Page
     when 'no' then has_defined_contribution_pension_no.set true
     when 'unknown' then has_defined_contribution_pension_unknown.set true
     end
+  end
+
+  def fill_in_supplementary_information(appointment_summary)
+    supplementary_benefits.set appointment_summary.supplementary_benefits
+    supplementary_debt.set appointment_summary.supplementary_debt
+    supplementary_ill_health.set appointment_summary.supplementary_ill_health
+    supplementary_defined_benefit_pensions.set appointment_summary.supplementary_defined_benefit_pensions
   end
 end

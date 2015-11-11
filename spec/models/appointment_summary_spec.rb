@@ -94,6 +94,30 @@ RSpec.describe AppointmentSummary, type: :model do
         expect(get).to be(false)
       end
     end
+
+    describe 'supplementary_benefits' do
+      let(:field) { :supplementary_benefits }
+
+      it_should_behave_like 'a boolean field'
+    end
+
+    describe 'supplementary_debt' do
+      let(:field) { :supplementary_debt }
+
+      it_should_behave_like 'a boolean field'
+    end
+
+    describe 'supplementary_ill_health' do
+      let(:field) { :supplementary_ill_health }
+
+      it_should_behave_like 'a boolean field'
+    end
+
+    describe 'supplementary_defined_benefit_pensions' do
+      let(:field) { :supplementary_defined_benefit_pensions }
+
+      it_should_behave_like 'a boolean field'
+    end
   end
 
   context 'when ineligible for guidance' do
