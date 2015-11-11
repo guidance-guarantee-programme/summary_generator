@@ -12,9 +12,7 @@ gem 'gaffe'
 gem 'govuk_admin_template'
 gem 'jc-validates_timeliness'
 gem 'meta-tags'
-gem 'output-templates', '~> 2.0.pre',
-    github: 'guidance-guarantee-programme/output-templates',
-    branch: '2-0'
+gem 'output-templates', '~> 2.0', github: 'guidance-guarantee-programme/output-templates'
 gem 'princely'
 gem 'puma'
 gem 'rails', '4.2.4'
