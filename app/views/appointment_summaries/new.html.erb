@@ -4,7 +4,7 @@
   </div>
 
   <p class="lead">Use this form to enter the visitor's personal details given during the guidance
-    appointment and to issue a personalised record of guidance.</p>
+    appointment and to issue a personalised summary document.</p>
 
   <div class="display_if_consent">
     <% if @appointment_summary.errors.any? %>
@@ -196,7 +196,7 @@
   <div class="checkbox">
     <label for="appointment_summary_consent">
       <input class="t-continue-working" type="checkbox" value="1" name="appointment_summary[consent]" id="appointment_summary_consent" />
-      Visitor has consented to sharing data for purpose of creating and sending record of guidance
+      Visitor has consented to sharing data for purpose of creating and sending summary document
     </label>
   </div>
 </script>

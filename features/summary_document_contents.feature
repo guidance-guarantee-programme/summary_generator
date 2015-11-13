@@ -1,11 +1,11 @@
-Feature: Record of guidance contents
+Feature: Summary document contents
   As Pension Wise
-  We want to provide a record of guidance
+  We want to provide a summary document
   So that customers are reminded of what was discussed, including next steps that they may wish to take
 
-Scenario: Generic record of guidance
+Scenario: Generic summary document
   Given we have captured the customer's details in an appointment summary
-  When we send them their record of guidance
+  When we send them their summary document
   Then the sections it includes should be (in order):
     | covering letter          |
     | getting started          |
@@ -17,7 +17,7 @@ Scenario: Generic record of guidance
 
 Scenario Outline: Supplementary information can be included
   Given the customer requires supplementary information about "<topic>"
-  When we send them their record of guidance
+  When we send them their summary document
   Then it should include supplementary information about "<topic>"
 
   Examples:
@@ -29,13 +29,13 @@ Scenario Outline: Supplementary information can be included
 
 Scenario: Records of guidance include the information provided to us by the customer
   Given we have captured the customer's details in an appointment summary
-  When we send them their record of guidance
-  Then the record of guidance should include their details
+  When we send them their summary document
+  Then the summary document should include their details
 
 Scenario: Records of guidance include information about the appointment
   Given we have captured appointment details in an appointment summary
-  When we send a record of guidance
-  Then the record of guidance should include the details of the appointment
+  When we send a summary document
+  Then the summary document should include the details of the appointment
 
 @todo
 Scenario: Reference numbers

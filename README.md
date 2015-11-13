@@ -1,8 +1,8 @@
-# PDF Output
+# Summary Generator
 
 [![Build Status](https://magnum.travis-ci.com/guidance-guarantee-programme/pdf_output.svg?token=Na2Zajdrgs8wscyzQfn2)](https://magnum.travis-ci.com/guidance-guarantee-programme/pdf_output)
 
-Generate [Pension Wise] appointment output in PDF format only.
+Generate [Pension Wise] summary documents in PDF format only.
 
 
 ## Prerequisites
@@ -20,7 +20,7 @@ Generate [Pension Wise] appointment output in PDF format only.
 Clone the repository:
 
 ```sh
-$ git clone https://github.com/guidance-guarantee-programme/pdf_output.git
+$ git clone https://github.com/guidance-guarantee-programme/summary_generator.git
 ```
 
 Setup the application:

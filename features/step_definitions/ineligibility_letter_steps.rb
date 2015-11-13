@@ -5,7 +5,7 @@ Given(/^the customer doesn't have a defined contribution pension pot$/) do
 end
 
 When(/^they have had a Pension Wise appointment$/) do
-  step('we send them their record of guidance')
+  step('we send them their summary document')
 end
 
 Then(/^we should send them an ineligibility letter$/) do
