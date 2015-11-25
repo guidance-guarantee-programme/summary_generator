@@ -9,10 +9,13 @@ gem 'autoprefixer-rails'
 gem 'bugsnag'
 gem 'foreman'
 gem 'gaffe'
+gem 'gds-sso'
 gem 'govuk_admin_template'
 gem 'jc-validates_timeliness'
 gem 'meta-tags'
 gem 'output-templates', '~> 2.0', github: 'guidance-guarantee-programme/output-templates'
+gem 'pg'
+gem 'plek'
 gem 'princely'
 gem 'puma'
 gem 'rails', '4.2.4'
@@ -21,6 +24,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'launchy'
   gem 'pry-rails'
   gem 'rspec-rails'
@@ -37,6 +41,7 @@ end
 
 group :test do
   gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
   gem 'pdf-inspector', require: 'pdf/inspector'
   gem 'shoulda-matchers', '~> 3.0'
   gem 'site_prism'

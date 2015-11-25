@@ -3,6 +3,8 @@ Given(/^I have captured some appointment details$/) do
 end
 
 Given(/^I have previewed the output document$/) do
+  User.create
+
   page = AppointmentSummaryPage.new
   page.load
   page.fill_in(@appointment_summary)

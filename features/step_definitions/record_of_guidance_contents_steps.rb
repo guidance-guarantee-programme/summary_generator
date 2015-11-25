@@ -28,6 +28,8 @@ Given(/^the customer requires supplementary information about "([^"]*)"$/) do |t
 end
 
 When(/^we send (?:them their|a) summary document$/) do
+  User.create
+
   page = AppointmentSummaryPage.new
   page.load
   page.fill_in(@appointment_summary)

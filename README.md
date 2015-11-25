@@ -11,8 +11,10 @@ Generate [Pension Wise] summary documents in PDF format only.
 * [Git]
 * [Node.js][Node]
 * [PrinceXML]
-* [NPM]
+* [NPM]         
+* [PostgreSQL]
 * [Ruby 2.2.3][Ruby]
+* [Signon]
 
 
 ## Installation
@@ -65,6 +67,8 @@ Please see the [contributing guidelines](/CONTRIBUTING.md).
 [heroku]: https://www.heroku.com
 [node]: http://nodejs.org
 [npm]: https://www.npmjs.org
-[pension wise]: https://www.pensionwise.gov.uk
+[pension wise]: https://www.pensionwise.gov.uk          
+[postgresql]: http://www.postgresql.org
 [princexml]: http://www.princexml.com/
 [ruby]: http://www.ruby-lang.org/en
+[signon]: https://github.com/guidance-guarantee-programme/signonotron2

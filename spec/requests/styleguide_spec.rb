@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Styleguide', type: :request do
   describe 'styleguide pages' do
+    before { User.create }
+
     routes = Rails.application.routes.routes.map do |route|
       path = route.path.spec.to_s
       path.sub(/\(.:format\)/, '') if path =~ /styleguide/ && path !~ /:action/

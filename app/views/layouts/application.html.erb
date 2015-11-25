@@ -5,6 +5,11 @@
 <%= content_for :app_title, 'Pension Wise Summary Documents' %>
 <%= content_for :page_title, title %>
 
+<% content_for :navbar_right do %>
+  <%= link_to current_user.name, Plek.current.find('signon') %>
+  &bull; <%= link_to 'Sign out', gds_sign_out_path %>
+<% end %>
+
 <% content_for :exclude_analytics, true %>
 <% content_for :body_start do %>
   <!-- Google Tag Manager -->
