@@ -1,6 +1,6 @@
 # Summary Generator
 
-[![Build Status](https://magnum.travis-ci.com/guidance-guarantee-programme/pdf_output.svg?token=Na2Zajdrgs8wscyzQfn2)](https://magnum.travis-ci.com/guidance-guarantee-programme/pdf_output)
+[![Build Status](https://travis-ci.org/guidance-guarantee-programme/summary_generator.svg?branch=master)](https://travis-ci.org/guidance-guarantee-programme/summary_generator)
 
 Generate [Pension Wise] summary documents in PDF format only.
 

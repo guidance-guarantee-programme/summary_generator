@@ -3,24 +3,32 @@ language: ruby
 cache:
   bundler: true
   directories:
-  - .downloads
+  - ".downloads"
   - node_modules
   - tmp/cache/assets/test
   - vendor/assets/bower_components
 env:
   global:
-  - secure: OHty0sCWbCAsxw8vLWmQLe2uBu8aR7zwKXh4aO8XipkNqIQSyVF3Q/iNC2DOclOmomT/C2wp2XWLysazJ5oyYpkooTe0wh9Bl2I3J6JqF7aynLzmk8eT0BoP/MZwX0lbCI11Z2JVW349xipku/vBVoucN40P6j5FfgZjTJYm5JE=
-  - secure: SVw7sxOncYt1Tp9QoPLmKSw2IxpF1u3UyfmxIG3hqjkCVrNjYTehBfnS/pxoGVugrq8q9PQ9uJPZlmOp5IKIlJhyZ6kdpq2LjRxjgAPC935qOEgsu4OM1olE0G1oqdyDBv/tePmJFmr0ViUfCIIv464g+cYd81kFzcwaeXgKjOM=
   - PATH=$PWD/bin:$PATH
+  - secure: DyXBK6bjM0hmuc9caGjpZKpHHzeUdxTwkhGMrrAtUUyVC6i9PH/UL0Keq9rSZs50IwFiC9dCumvUOxNH4SbAMmrJjpw6WHiPG6sZ01x/M/kEbi9QVMe3xu1DPbqpZE0IgeyTXw4D6E6go1SMSrfYenz1qvRV8h7fmJqCjf+UnptWiOfYXeAAFXKvdbbItZs4ABNMtHJ+eP1QKFqQZc5MBNwyA+FZf3HfTipCOQrpTq9W8UG5qaQA5phes6U2s0MdnJJEYQcWr1rMxLA5Z1F+wI9+XtsW6MC0HpJnBQNtLeGDLzHSDv/OivB7/aXXSF9xHh9V0bZWkkpmF1P2EsgWlYPrKRVlgcVnMSLrhPgdUmR7E5Smjyyetdq2I7VmRyw9XbpqJlRWe8N4vUV8SfluzFDSj6M8bXROhnPo6ttYSlCbIMpobd7Z8ZICkv61M4ub3fm8t8feMv7R1bIN3Uh+LXCtM/5yuCiKGOVW0s4XnDOegpBZMk6PSJQq0vD0rYAGvYln2eZs/jZMfZPmRQ28l4RfUQIM1YH85O+14zZ9G4v4fcjafJ9opHxX0cLrHbCfG2528gJKQrvgMiaV/sieqSkromN20AV0A4cTc0onw7Q+sXKjBlY1Jo9SdxnCDc215hCHf0yrwVMy78M2zT6O3W5dqZ6A6QmdrPkbcFx3ihc=
 node_js:
 - '0.10'
 rvm:
-- '2.2.2'
+- 2.2.3
+before_install:
+- echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
 before_script:
-- '[ -d .downloads ] || mkdir .downloads'
-- (cd .downloads; [ -d prince-9.0r5-linux-amd64-static ] || curl -s http://www.princexml.com/download/prince-9.0r5-linux-amd64-static.tar.gz | tar xzf -)
+- "[ -d .downloads ] || mkdir .downloads"
+- "(cd .downloads; [ -d prince-9.0r5-linux-amd64-static ] || curl -s http://www.princexml.com/download/prince-9.0r5-linux-amd64-static.tar.gz
+  | tar xzf -)"
 - echo $PWD | ./.downloads/prince-9.0r5-linux-amd64-static/install.sh
 - npm install
-- 'npm install git://github.com/guidance-guarantee-programme/travis-notify-geckoboard#item-must-be-array'
-after_script:
-- "./node_modules/.bin/travis-notify-geckoboard -a $GECKOBOARD_API_KEY -w $GECKOBOARD_WIDGET_KEY"
+- "./bin/rake db:setup RAILS_ENV=test"
+deploy:
+  provider: heroku
+  api_key:
+    secure: JmQfhZ1GLvF878Wgq8XdAWBSpo6BMQ0Af7Z1imvPzmkte7pV5BuA/UiA5BioQsCPJ0UG7LZAAYNPgoRwm6Y0kvWElUmNutRr0OBVheZgjbCfJvtnr+O18lLiW6Nq2JQ20HAyQhRTYsYbEm2DCJ/VL0oJ4nDs2mK0w6DlTaN2KnO8gvlfRvPWLYg8DqYb9k6SSpxyEDOrUP2XOAIsa3Od9nxq2rf8o0tmTqdzilgKqXI29fgdWPjrWe5Rw4R9TP72iv+N/lWcozliuOytyypzZjjGuejpsXzsgXWykD26bQczTis0tkwvFreShZZJi2uxR6hYq4iUyCizHXju6rnaS/W/2j5Pe9QTcMmBsHFPqtSfC9LQeiEkebp+zUcwmcGDTwj0wkktHxOsX4uQF7NY83IfN4GAzUQ+uZfOk5XqFEAJwQ+x0a4ZJmQHpBgNQ0lqNQVEyqNu1LQAZtP5HS1wEibuW7Md9bCI/UVlYQbYMu3jflHtZ41cQmQPO8II/qjR/ra4UG2BQqQc3IzjKO31JB+apv0WyXcWgY3y9vFz2FRcRSet2FcyvIy0aKpq+pZNMHnfo+29jYuwjRghjVGNPZPsxx9KX0PAi3Cm01jHCHaEPK+kk8TyMDH50DPaWFcreUgcEEhTCnrbv1OEbKujemRMVb2F2XPis7BbtdoI0KM=
+  app: staging-summary-gen-pw-gov-uk
+  on:
+    repo: guidance-guarantee-programme/summary_generator
+  run: "./bin/rake db:migrate"
