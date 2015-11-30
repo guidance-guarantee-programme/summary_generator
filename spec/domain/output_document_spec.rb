@@ -13,7 +13,7 @@ RSpec.describe OutputDocument do
   let(:postcode) { 'SW1A 2HQ' }
   let(:output_document) { described_class.new(appointment_summary) }
   let(:attendee_name) { "#{title} #{first_name} #{last_name}" }
-  let(:guider_organisation) { 'cita' }
+  let(:guider_organisation) { 'cas' }
   let(:guider_name) { 'James' }
   let(:date_of_appointment) { Date.new(2015, 3, 30) }
   let(:params) do
@@ -90,14 +90,14 @@ RSpec.describe OutputDocument do
   describe '#guider_organisation' do
     subject { output_document.guider_organisation }
 
-    context 'when CitA' do
-      it { is_expected.to eq('Citizens Advice') }
+    context 'when CAS' do
+      it { is_expected.to eq('Citizens Advice Scotland') }
     end
 
     context 'when NICAB' do
       let(:guider_organisation) { 'nicab' }
 
-      it { is_expected.to eq('Citizens Advice Bureau Northern Ireland') }
+      it { is_expected.to eq('Citizens Advice Northern Ireland') }
     end
   end
 
@@ -127,7 +127,7 @@ RSpec.describe OutputDocument do
     it do
       is_expected.to eq(
         'You recently had a Pension Wise guidance appointment with James ' \
-        'from Citizens Advice on 30 March 2015.'
+        'from Citizens Advice Scotland on 30 March 2015.'
       )
     end
   end

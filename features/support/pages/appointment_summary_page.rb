@@ -14,7 +14,7 @@ class AppointmentSummaryPage < SitePrism::Page
   element :date_of_appointment, '.t-date-of-appointment'
   element :guider_name, '.t-guider-name'
   element :guider_organisation_nicab, '.t-guider-organisation-nicab'
-  element :guider_organisation_cita, '.t-guider-organisation-cita'
+  element :guider_organisation_cas, '.t-guider-organisation-cas'
   element :has_defined_contribution_pension_yes, '.t-has-defined-contribution-pension-yes'
   element :has_defined_contribution_pension_no, '.t-has-defined-contribution-pension-no'
   element :has_defined_contribution_pension_unknown, '.t-has-defined-contribution-pension-unknown'
@@ -57,7 +57,7 @@ class AppointmentSummaryPage < SitePrism::Page
     guider_name.set appointment_summary.guider_name
     case appointment_summary.guider_organisation
     when 'nicab' then guider_organisation_nicab.set true
-    when 'cita' then guider_organisation_cita.set true
+    when 'cas' then guider_organisation_cas.set true
     end
   end
 

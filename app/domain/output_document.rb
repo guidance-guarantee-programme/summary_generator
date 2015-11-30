@@ -37,8 +37,8 @@ class OutputDocument
 
   def guider_organisation
     case appointment_summary.guider_organisation
-    when 'cita' then 'Citizens Advice'
-    when 'nicab' then 'Citizens Advice Bureau Northern Ireland'
+    when 'cas' then 'Citizens Advice Scotland'
+    when 'nicab' then 'Citizens Advice Northern Ireland'
     else 'Pension Wise'
     end
   end
