@@ -97,7 +97,7 @@ RSpec.describe OutputDocument do
     context 'when NICAB' do
       let(:guider_organisation) { 'nicab' }
 
-      it { is_expected.to eq('Citizens Advice Northern Ireland') }
+      it { is_expected.to eq('Citizens Advice') }
     end
   end
 
