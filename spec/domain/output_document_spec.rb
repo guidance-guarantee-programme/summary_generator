@@ -91,7 +91,7 @@ RSpec.describe OutputDocument do
     subject { output_document.guider_organisation }
 
     context 'when CAS' do
-      it { is_expected.to eq('Citizens Advice Scotland') }
+      it { is_expected.to eq('Citizens Advice') }
     end
 
     context 'when NICAB' do
@@ -127,7 +127,7 @@ RSpec.describe OutputDocument do
     it do
       is_expected.to eq(
         'You recently had a Pension Wise guidance appointment with James ' \
-        'from Citizens Advice Scotland on 30 March 2015.'
+        'from Citizens Advice on 30 March 2015.'
       )
     end
   end
