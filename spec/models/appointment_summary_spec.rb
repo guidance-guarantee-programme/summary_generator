@@ -27,7 +27,7 @@ RSpec.describe AppointmentSummary, type: :model do
   end
 
   it { is_expected.to validate_presence_of(:guider_name) }
-  it { is_expected.to validate_inclusion_of(:guider_organisation).in_array(%w(cas nicab)) }
+  it { is_expected.to validate_inclusion_of(:guider_organisation).in_array(%w(citizens_advice)) }
 
   it { is_expected.to validate_presence_of(:address_line_1) }
   it { is_expected.to_not validate_presence_of(:address_line_2) }

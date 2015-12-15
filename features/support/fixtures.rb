@@ -18,7 +18,7 @@ module Fixtures
         postcode: 'SW1A 2HQ',
         date_of_appointment: '2015-02-05',
         guider_name: 'Penelope',
-        guider_organisation: 'cas',
+        guider_organisation: 'citizens_advice',
         has_defined_contribution_pension: 'yes',
         supplementary_benefits: false,
         supplementary_debt: false,

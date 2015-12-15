@@ -95,18 +95,10 @@
         </legend>
 
         <div class="radio">
-          <%= f.label :guider_organisation, value: 'cas' do %>
-            <%= f.radio_button :guider_organisation, 'cas',
-                               class: 't-guider-organisation-cas' %>
-            CAS
-          <% end %>
-        </div>
-
-        <div class="radio">
-          <%= f.label :guider_organisation, value: 'nicab' do %>
-            <%= f.radio_button :guider_organisation, 'nicab',
-                               class: 't-guider-organisation-nicab' %>
-            NICAB
+          <%= f.label :guider_organisation, value: 'citizens_advice' do %>
+            <%= f.radio_button :guider_organisation, 'citizens_advice',
+                               class: 't-guider-organisation-citizens-advice' %>
+            Citizens Advice
           <% end %>
         </div>
       </fieldset>

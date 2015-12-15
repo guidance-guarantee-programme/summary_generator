@@ -39,7 +39,7 @@ class AppointmentSummary
   validates :guider_organisation,
             presence: true,
             inclusion: {
-              in: %w(nicab cas),
+              in: %w(citizens_advice),
               allow_blank: true,
               message: '%{value} is not a valid organisation'
             }

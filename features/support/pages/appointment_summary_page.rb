@@ -13,8 +13,7 @@ class AppointmentSummaryPage < SitePrism::Page
   element :postcode, '.t-postcode'
   element :date_of_appointment, '.t-date-of-appointment'
   element :guider_name, '.t-guider-name'
-  element :guider_organisation_nicab, '.t-guider-organisation-nicab'
-  element :guider_organisation_cas, '.t-guider-organisation-cas'
+  element :guider_organisation_citizens_advice, '.t-guider-organisation-citizens-advice'
   element :has_defined_contribution_pension_yes, '.t-has-defined-contribution-pension-yes'
   element :has_defined_contribution_pension_no, '.t-has-defined-contribution-pension-no'
   element :has_defined_contribution_pension_unknown, '.t-has-defined-contribution-pension-unknown'
@@ -56,8 +55,7 @@ class AppointmentSummaryPage < SitePrism::Page
   def fill_in_guider_details(appointment_summary)
     guider_name.set appointment_summary.guider_name
     case appointment_summary.guider_organisation
-    when 'nicab' then guider_organisation_nicab.set true
-    when 'cas' then guider_organisation_cas.set true
+    when 'citizens_advice' then guider_organisation_citizens_advice.set true
     end
   end
 
