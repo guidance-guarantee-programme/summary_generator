@@ -1,4 +1,8 @@
+require_relative '../site_prism/radio_button_container'
+
 class AppointmentSummaryPage < SitePrism::Page
+  extend SitePrism::RadioButtonContainer
+
   set_url '/appointment_summaries/new'
 
   element :title, '.t-title'
