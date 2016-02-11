@@ -7,7 +7,7 @@ class AppointmentSummary
                 :address_line_1, :address_line_2, :address_line_3, :county, :town, :postcode,
                 :country, :has_defined_contribution_pension,
                 :supplementary_benefits, :supplementary_debt, :supplementary_ill_health,
-                :supplementary_defined_benefit_pensions
+                :supplementary_defined_benefit_pensions, :format_preference
 
   %i(supplementary_benefits supplementary_debt
      supplementary_ill_health supplementary_defined_benefit_pensions).each do |predicate_method|
@@ -56,6 +56,8 @@ class AppointmentSummary
               allow_blank: true,
               message: '%{value} is not a valid value'
             }
+
+  validates :format_preference, inclusion: { in: %w(standard large_text) }
 
   def eligible_for_guidance?
     %w(yes unknown).include?(has_defined_contribution_pension)
