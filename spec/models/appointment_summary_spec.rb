@@ -49,6 +49,15 @@ RSpec.describe AppointmentSummary, type: :model do
       .to validate_inclusion_of(:has_defined_contribution_pension).in_array(%w(yes no unknown))
   end
 
+  it do
+    is_expected
+      .to validate_inclusion_of(:format_preference).in_array(%w(standard large_text))
+  end
+
+  it 'has a defaults to a standard format preference' do
+    expect(subject.format_preference).to eq('standard')
+  end
+
   describe 'boolean fields' do
     shared_examples 'a boolean field' do
       def set(value)

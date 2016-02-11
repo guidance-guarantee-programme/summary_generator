@@ -23,7 +23,8 @@ module Fixtures
         supplementary_benefits: false,
         supplementary_debt: false,
         supplementary_ill_health: false,
-        supplementary_defined_benefit_pensions: false
+        supplementary_defined_benefit_pensions: false,
+        format_preference: 'standard'
       )
     end
   }

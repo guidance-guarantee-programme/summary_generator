@@ -27,7 +27,7 @@ Given(/^the customer requires supplementary information about "([^"]*)"$/) do |t
   end
 end
 
-When(/^we send (?:them their|a) summary document$/) do
+When(/^we (?:generate|send) (?:them their|a) summary document$/) do
   User.create
 
   page = AppointmentSummaryPage.new

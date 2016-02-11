@@ -37,6 +37,6 @@ class AppointmentSummariesController < ApplicationController
               :address_line_1, :address_line_2, :address_line_3, :county, :town, :postcode, :country,
               :has_defined_contribution_pension,
               :supplementary_benefits, :supplementary_debt,
-              :supplementary_ill_health, :supplementary_defined_benefit_pensions)
+              :supplementary_ill_health, :supplementary_defined_benefit_pensions, :format_preference)
   end
 end

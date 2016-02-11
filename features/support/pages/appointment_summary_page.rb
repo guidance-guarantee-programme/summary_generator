@@ -1,4 +1,8 @@
+require_relative '../site_prism/radio_button_container'
+
 class AppointmentSummaryPage < SitePrism::Page
+  extend SitePrism::RadioButtonContainer
+
   set_url '/appointment_summaries/new'
 
   element :title, '.t-title'
@@ -23,12 +27,17 @@ class AppointmentSummaryPage < SitePrism::Page
   element :supplementary_defined_benefit_pensions, '.t-supplementary-defined-benefit-pensions'
   element :submit, '.t-submit'
 
+  radio_buttons :format_preference,
+                standard: '.t-format-preference-standard',
+                large_text: '.t-format-preference-large-text'
+
   def fill_in(appointment_summary)
     fill_in_customer_details(appointment_summary)
     fill_in_appointment_audit_details(appointment_summary)
     fill_in_guider_details(appointment_summary)
     fill_in_has_defined_contribution_pension(appointment_summary)
     fill_in_supplementary_information(appointment_summary)
+    fill_in_format_preference(appointment_summary)
   end
 
   private
@@ -72,5 +81,12 @@ class AppointmentSummaryPage < SitePrism::Page
     supplementary_debt.set appointment_summary.supplementary_debt
     supplementary_ill_health.set appointment_summary.supplementary_ill_health
     supplementary_defined_benefit_pensions.set appointment_summary.supplementary_defined_benefit_pensions
+  end
+
+  def fill_in_format_preference(appointment_summary)
+    case appointment_summary.format_preference
+    when 'standard' then format_preference_standard.set true
+    when 'large_text' then format_preference_large_text.set true
+    end
   end
 end
