@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/guidance-guarantee-programme/output-templates.git
-  revision: 3bc446a2ea1375d3d558954230bdf08d567f8955
+  revision: 6a95a58031e206b1f17db8802199a1cc126d822d
+  branch: large-print-feature
   specs:
     output-templates (2.1.0)
       actionview
