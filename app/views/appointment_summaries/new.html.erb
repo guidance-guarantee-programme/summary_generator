@@ -177,6 +177,30 @@
       </div>
     </div>
 
+    <h2>Summary document</h2>
+
+    <div class="form-group">
+      <fieldset>
+        <legend>
+          <span>Format preference</span>
+        </legend>
+        <div class="radio">
+          <%= f.label :format_preference, value: 'standard' do %>
+            <%= f.radio_button :format_preference, 'standard',
+                               class: 't-format-preference-standard' %>
+            Standard
+          <% end %>
+        </div>
+        <div class="radio">
+          <%= f.label :format_preference, value: 'large_text' do %>
+            <%= f.radio_button :format_preference, 'large_text',
+                               class: 't-format-preference-large-text' %>
+            Large text
+          <% end %>
+        </div>
+      </fieldset>
+    </div>
+
     <p>
       <%= f.submit 'Preview', class: %w(btn-success t-submit btn-lg) %>
     </p>

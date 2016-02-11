@@ -8,7 +8,8 @@ RSpec.describe OutputDocument::HTMLRenderer do
           attributes = {
             attendee_address: '1 Horse Guard Road',
             income_in_retirement: 'pension',
-            variant: variant
+            variant: variant,
+            format_preference: 'standard'
           }
 
           instance_double(OutputDocument, attributes).as_null_object

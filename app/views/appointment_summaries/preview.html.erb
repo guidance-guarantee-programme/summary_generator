@@ -11,7 +11,8 @@
       :guider_name, :guider_organisation,
       :address_line_1, :address_line_2, :address_line_3, :county, :town, :postcode,
       :has_defined_contribution_pension,
-      :supplementary_benefits, :supplementary_debt, :supplementary_ill_health, :supplementary_defined_benefit_pensions].each do |field| %>
+      :supplementary_benefits, :supplementary_debt, :supplementary_ill_health, :supplementary_defined_benefit_pensions,
+      :format_preference].each do |field| %>
     <%= f.hidden_field field %>
   <% end %>
 
