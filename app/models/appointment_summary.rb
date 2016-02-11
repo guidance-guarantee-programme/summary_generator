@@ -59,6 +59,10 @@ class AppointmentSummary
 
   validates :format_preference, inclusion: { in: %w(standard large_text) }
 
+  def format_preference
+    @format_preference || 'standard'
+  end
+
   def eligible_for_guidance?
     %w(yes unknown).include?(has_defined_contribution_pension)
   end
