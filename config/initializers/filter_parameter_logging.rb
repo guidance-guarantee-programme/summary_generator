@@ -1,1 +1,1 @@
-Rails.application.config.filter_parameters += %i( password )
+Rails.application.config.filter_parameters += %i(appointment_summary)
