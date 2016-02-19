@@ -24,7 +24,8 @@ module Fixtures
         supplementary_debt: false,
         supplementary_ill_health: false,
         supplementary_defined_benefit_pensions: false,
-        format_preference: 'standard'
+        format_preference: 'standard',
+        appointment_type: 'standard'
       )
     end
   }

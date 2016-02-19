@@ -9,6 +9,7 @@ Then(/^it should be in (.*) format$/) do |format_preference|
   step 'I confirm the preview'
 
   info = PDF::Reader.new(StringIO.new(page.source)).info
+  keywords = info[:Keywords].split(', ')
 
-  expect(info).to include(Keywords: format_preference)
+  expect(keywords).to include(format_preference)
 end

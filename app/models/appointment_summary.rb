@@ -7,7 +7,7 @@ class AppointmentSummary
                 :address_line_1, :address_line_2, :address_line_3, :county, :town, :postcode,
                 :country, :has_defined_contribution_pension,
                 :supplementary_benefits, :supplementary_debt, :supplementary_ill_health,
-                :supplementary_defined_benefit_pensions, :format_preference
+                :supplementary_defined_benefit_pensions, :format_preference, :appointment_type
 
   %i(supplementary_benefits supplementary_debt
      supplementary_ill_health supplementary_defined_benefit_pensions).each do |predicate_method|
@@ -58,9 +58,14 @@ class AppointmentSummary
             }
 
   validates :format_preference, inclusion: { in: %w(standard large_text) }
+  validates :appointment_type, inclusion: { in: %w(standard 50_54) }
 
   def format_preference
     @format_preference || 'standard'
+  end
+
+  def appointment_type
+    @appointment_type || 'standard'
   end
 
   def eligible_for_guidance?

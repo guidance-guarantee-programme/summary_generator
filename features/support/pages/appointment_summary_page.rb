@@ -31,6 +31,10 @@ class AppointmentSummaryPage < SitePrism::Page
                 standard: '.t-format-preference-standard',
                 large_text: '.t-format-preference-large-text'
 
+  radio_buttons :appointment_type,
+                standard: '.t-appointment-type-standard',
+                appointment_50_54: '.t-appointment-type-50-54'
+
   def fill_in(appointment_summary)
     fill_in_customer_details(appointment_summary)
     fill_in_appointment_audit_details(appointment_summary)
@@ -38,6 +42,7 @@ class AppointmentSummaryPage < SitePrism::Page
     fill_in_has_defined_contribution_pension(appointment_summary)
     fill_in_supplementary_information(appointment_summary)
     fill_in_format_preference(appointment_summary)
+    fill_in_appointment_type(appointment_summary)
   end
 
   private
@@ -87,6 +92,13 @@ class AppointmentSummaryPage < SitePrism::Page
     case appointment_summary.format_preference
     when 'standard' then format_preference_standard.set true
     when 'large_text' then format_preference_large_text.set true
+    end
+  end
+
+  def fill_in_appointment_type(appointment_summary)
+    case appointment_summary.appointment_type
+    when 'standard' then appointment_type_standard.set true
+    when '50_54' then appointment_type_appointment_50_54.set true
     end
   end
 end
