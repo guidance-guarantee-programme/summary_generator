@@ -14,6 +14,14 @@ class StyleguideController < ApplicationController
     render_output_document(eligible_for_guidance: true, appointment_type: '50_54')
   end
 
+  def pages_output_base_large
+    render_output_document(eligible_for_guidance: true, format_preference: 'large_text')
+  end
+
+  def pages_output_50_54_large
+    render_output_document(eligible_for_guidance: true, appointment_type: '50_54', format_preference: 'large_text')
+  end
+
   def pages_output_ineligible
     render_output_document(eligible_for_guidance: false)
   end
@@ -28,11 +36,11 @@ class StyleguideController < ApplicationController
     :format_preference, :appointment_type
   )
 
-  def render_output_document(eligible_for_guidance: true, appointment_type: 'standard')
+  def render_output_document(eligible_for_guidance: true, format_preference: 'standard', appointment_type: 'standard')
     appointment_summary = AppointmentSummary.new(eligible_for_guidance, Time.zone.today, 'Jimmy', 'Pension Wise',
                                                  'Mr', 'Joe', 'Bloggs',
                                                  '73c', 'Burmah St', '', 'Belfast', 'Antrim', 'BT9 1HA', Countries.uk,
-                                                 true, true, true, true, 'standard', appointment_type)
+                                                 true, true, true, true, format_preference, appointment_type)
     output_document = OutputDocument.new(appointment_summary)
 
     if params[:format] == 'pdf'
