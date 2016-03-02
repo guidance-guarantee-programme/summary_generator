@@ -7,7 +7,19 @@ class StyleguideController < ApplicationController
   end
 
   def pages_output_base
-    render_output_document(eligible_for_guidance: true)
+    render_output_document(eligible_for_guidance: true, appointment_type: 'standard')
+  end
+
+  def pages_output_50_54
+    render_output_document(eligible_for_guidance: true, appointment_type: '50_54')
+  end
+
+  def pages_output_base_large
+    render_output_document(eligible_for_guidance: true, format_preference: 'large_text')
+  end
+
+  def pages_output_50_54_large
+    render_output_document(eligible_for_guidance: true, appointment_type: '50_54', format_preference: 'large_text')
   end
 
   def pages_output_ineligible
@@ -21,14 +33,14 @@ class StyleguideController < ApplicationController
     :guider_organisation, :title, :first_name, :last_name,
     :address_line_1, :address_line_2, :address_line_3, :town, :county, :postcode, :country,
     :supplementary_benefits, :supplementary_debt, :supplementary_ill_health, :supplementary_defined_benefit_pensions,
-    :format_preference
+    :format_preference, :appointment_type
   )
 
-  def render_output_document(eligible_for_guidance: true)
+  def render_output_document(eligible_for_guidance: true, format_preference: 'standard', appointment_type: 'standard')
     appointment_summary = AppointmentSummary.new(eligible_for_guidance, Time.zone.today, 'Jimmy', 'Pension Wise',
                                                  'Mr', 'Joe', 'Bloggs',
                                                  '73c', 'Burmah St', '', 'Belfast', 'Antrim', 'BT9 1HA', Countries.uk,
-                                                 true, true, true, true, 'standard')
+                                                 true, true, true, true, format_preference, appointment_type)
     output_document = OutputDocument.new(appointment_summary)
 
     if params[:format] == 'pdf'

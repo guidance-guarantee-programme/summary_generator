@@ -9,7 +9,8 @@ RSpec.describe OutputDocument::HTMLRenderer do
             attendee_address: '1 Horse Guard Road',
             income_in_retirement: 'pension',
             variant: variant,
-            format_preference: 'standard'
+            format_preference: 'standard',
+            appointment_type: 'standard'
           }
 
           instance_double(OutputDocument, attributes).as_null_object

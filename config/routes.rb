@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     scope path: 'pages' do
       get 'input', action: 'pages_input'
       get 'output-base', action: 'pages_output_base'
+      get 'output-50-54', action: 'pages_output_50_54'
+      get 'output-base-large', action: 'pages_output_base_large'
+      get 'output-50-54-large', action: 'pages_output_50_54_large'
       get 'output-ineligible', action: 'pages_output_ineligible'
     end
 

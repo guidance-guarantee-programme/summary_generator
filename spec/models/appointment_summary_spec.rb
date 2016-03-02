@@ -58,6 +58,15 @@ RSpec.describe AppointmentSummary, type: :model do
     expect(subject.format_preference).to eq('standard')
   end
 
+  it do
+    is_expected
+      .to validate_inclusion_of(:appointment_type).in_array(%w(standard 50_54))
+  end
+
+  it 'defaults to a standard appointment type' do
+    expect(subject.appointment_type).to eq('standard')
+  end
+
   describe 'boolean fields' do
     shared_examples 'a boolean field' do
       def set(value)
