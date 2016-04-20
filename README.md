@@ -13,7 +13,7 @@ Generate [Pension Wise] summary documents in PDF format only.
 * [PrinceXML]
 * [NPM]         
 * [PostgreSQL]
-* [Ruby 2.2.3][Ruby]
+* [Ruby 2.3.0][Ruby]
 * [Signon]
 
 
