@@ -13,8 +13,6 @@ env:
   - secure: DyXBK6bjM0hmuc9caGjpZKpHHzeUdxTwkhGMrrAtUUyVC6i9PH/UL0Keq9rSZs50IwFiC9dCumvUOxNH4SbAMmrJjpw6WHiPG6sZ01x/M/kEbi9QVMe3xu1DPbqpZE0IgeyTXw4D6E6go1SMSrfYenz1qvRV8h7fmJqCjf+UnptWiOfYXeAAFXKvdbbItZs4ABNMtHJ+eP1QKFqQZc5MBNwyA+FZf3HfTipCOQrpTq9W8UG5qaQA5phes6U2s0MdnJJEYQcWr1rMxLA5Z1F+wI9+XtsW6MC0HpJnBQNtLeGDLzHSDv/OivB7/aXXSF9xHh9V0bZWkkpmF1P2EsgWlYPrKRVlgcVnMSLrhPgdUmR7E5Smjyyetdq2I7VmRyw9XbpqJlRWe8N4vUV8SfluzFDSj6M8bXROhnPo6ttYSlCbIMpobd7Z8ZICkv61M4ub3fm8t8feMv7R1bIN3Uh+LXCtM/5yuCiKGOVW0s4XnDOegpBZMk6PSJQq0vD0rYAGvYln2eZs/jZMfZPmRQ28l4RfUQIM1YH85O+14zZ9G4v4fcjafJ9opHxX0cLrHbCfG2528gJKQrvgMiaV/sieqSkromN20AV0A4cTc0onw7Q+sXKjBlY1Jo9SdxnCDc215hCHf0yrwVMy78M2zT6O3W5dqZ6A6QmdrPkbcFx3ihc=
 node_js:
 - '0.10'
-rvm:
-- 2.3.0
 before_install:
 - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
 before_script:
