@@ -4,7 +4,7 @@ class AppointmentSummariesController < ApplicationController
   end
 
   def create
-    appointment_summary = AppointmentSummary.new(appointment_summary_params)
+    appointment_summary = AppointmentSummary.create!(appointment_summary_params)
     output_document = OutputDocument.new(appointment_summary)
 
     respond_to do |format|
@@ -31,13 +31,7 @@ class AppointmentSummariesController < ApplicationController
   def appointment_summary_params
     params
       .require(:appointment_summary)
-      .permit(:title, :first_name, :last_name,
-              :date_of_appointment,
-              :guider_name, :guider_organisation,
-              :address_line_1, :address_line_2, :address_line_3, :county, :town, :postcode, :country,
-              :has_defined_contribution_pension,
-              :supplementary_benefits, :supplementary_debt,
-              :supplementary_ill_health, :supplementary_defined_benefit_pensions, :format_preference,
-              :appointment_type)
+      .permit(*AppointmentSummary.editable_column_names)
+      .merge(user: current_user)
   end
 end
