@@ -5,5 +5,5 @@ Feature: Covering letter
 
 Scenario: Records of guidance are sent with a covering letter
   Given a customer has had a Pension Wise appointment
-  When we send them their summary document
+  When we preview their summary document
   Then it should include a covering letter

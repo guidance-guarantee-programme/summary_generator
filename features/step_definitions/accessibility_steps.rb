@@ -5,8 +5,8 @@ Given(/^the customer prefers to receive their summary document in (.*?) format$/
 end
 
 Then(/^it should be in (.*) format$/) do |format_preference|
-  step 'I have previewed the output document'
-  step 'I confirm the preview'
+  page = RecordOfGuidancePreviewPage.new
+  page.confirm.click
 
   info = PDF::Reader.new(StringIO.new(page.source)).info
   keywords = info[:Keywords].split(', ')
