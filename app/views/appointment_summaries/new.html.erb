@@ -82,6 +82,11 @@
     </div>
 
     <div class="form-group">
+      <%= f.label :reference_number %>
+      <%= f.text_field :reference_number, class: %w(form-control input-md-2 t-reference-number) %>
+    </div>
+
+    <div class="form-group">
       <fieldset>
         <legend>
           <span>Type of appointment</span>
@@ -157,6 +162,149 @@
           <% end %>
         </div>
       </fieldset>
+    </div>
+
+    <div class="display_if_eligible">
+      <div class="row">
+        <div class="col-md-3 col-accuracy">
+          <div class="form-group">
+            <fieldset>
+              <legend>
+                <span>How accurate is the value given by the caller?</span>
+              </legend>
+              <div class="radio">
+                <label for="appointment_summary_accuracy_1">
+                  <input checked="checked" type="radio" value="exact" name="appointment_summary[pension_pot_accuracy]" id="appointment_summary_accuracy_1" class="t-pension-pot-accuracy-exact" />
+                  Exact
+                </label>
+              </div>
+              <div class="radio">
+                <label for="appointment_summary_accuracy_2">
+                  <input type="radio" value="approximate" name="appointment_summary[pension_pot_accuracy]" id="appointment_summary_accuracy_2" />
+                  Approximate
+                </label>
+              </div>
+              <div class="radio">
+                <label for="appointment_summary_accuracy_3">
+                  <input type="radio" value="range" name="appointment_summary[pension_pot_accuracy]" id="appointment_summary_accuracy_3" />
+                  A range
+                </label>
+              </div>
+              <div class="radio">
+                <label for="appointment_summary_accuracy_4">
+                  <input type="radio" value="notprovided" name="appointment_summary[pension_pot_accuracy]" id="appointment_summary_accuracy_4" />
+                  No value given
+                </label>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="col-md-8" id="col-pension-pot-value">
+          <div class="form-group form-inline">
+            <%= f.label :value_of_pension_pots do %>
+              Value of pension pots
+              <span class="input-help">Only use numbers, don't include pence, eg 27500</span>
+            <% end %><br />
+            £ <%= f.text_field :value_of_pension_pots, placeholder: 27500,
+                               class: %w(form-control t-value-of-pension-pots input-md-2 js-numbers-only) %>
+
+            <span class="display_if_range">
+              to
+              <%= f.label :upper_value_of_pension_pots do %>
+                <span class="visuallyhidden">Upper value of pension pots (optional) Only use numbers, don't include pence, eg 30000</span>
+              <% end %>
+              £ <%= f.text_field :upper_value_of_pension_pots, placeholder: 30000,
+                                 class: %w(form-control input-md-2 js-numbers-only t-upper-value-of-pension-pots) %>
+              <span class="hide-with-js"> (optional)</span>
+          </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <fieldset>
+          <legend>
+            <span>Income in retirement</span>
+          </legend>
+          <div class="radio">
+            <%= f.label :income_in_retirement, value: 'pension' do %>
+              <%= f.radio_button :income_in_retirement, 'pension',
+                                 class: 't-income-in-retirement-pension' %>
+              Only defined contribution pension(s) and State Pension (if eligible)
+            <% end %>
+          </div>
+
+          <div class="radio">
+            <%= f.label :income_in_retirement, value: 'other' do %>
+              <%= f.radio_button :income_in_retirement, 'other',
+                                 class: 't-income-in-retirement-other' %>
+              Other income is available
+            <% end %>
+          </div>
+        </fieldset>
+      </div>
+
+
+      <hr>
+
+      <h2>Retirement plans and pension options</h2>
+
+      <div class="form-group">
+        <fieldset>
+          <legend>
+            <span>Circumstances and preferences</span>
+          </legend>
+          <div class="checkbox">
+            <%= f.label :plans_to_continue_working do %>
+              <%= f.check_box :plans_to_continue_working, class: 't-plans-to-continue-working' %>
+              Plans to continue working for a while
+            <% end %>
+          </div>
+
+          <div class="checkbox">
+            <%= f.label :plan_is_unsure do %>
+              <%= f.check_box :plan_is_unsure, class: 't-plan-is-unsure' %>
+              Unsure about plans in retirement
+            <% end %>
+          </div>
+
+          <div class="checkbox">
+            <%= f.label :plans_to_leave_inheritance do %>
+              <%= f.check_box :plans_to_leave_inheritance, class: 't-plans-to-leave-inheritance' %>
+              Plans to leave money to someone
+            <% end %>
+          </div>
+
+          <div class="checkbox">
+            <%= f.label :plans_for_flexibility do %>
+              <%= f.check_box :plans_for_flexibility, class: 't-plans-for-flexibility' %>
+              Wants flexibility when taking money
+            <% end %>
+          </div>
+
+          <div class="checkbox">
+            <%= f.label :plans_for_security do %>
+              <%= f.check_box :plans_for_security, class: 't-plans-for-security' %>
+              Wants a guaranteed income
+            <% end %>
+          </div>
+
+          <div class="checkbox">
+            <%= f.label :plans_for_lump_sum do %>
+              <%= f.check_box :plans_for_lump_sum, class: 't-plans-for-lump-sum' %>
+              Needs a certain amount of money now
+            <% end %>
+          </div>
+
+          <div class="checkbox">
+            <%= f.label :plans_for_poor_health do %>
+              <%= f.check_box :plans_for_poor_health, class: 't-plans-for-poor-health' %>
+              Has poor health
+            <% end %>
+          </div>
+        </fieldset>
+      </div>
     </div>
 
     <div class="display_if_eligible">
@@ -246,42 +394,6 @@
     <button class="btn-success btn-sm" onclick="return false" id="postcode-lookup-button">Find UK address</button>
   </div>
   <div class="form-group form-inline" id="postcode-lookup-results-container">
-  </div>
-</script>
-
-<script type="text/html" id="pension-pot-accuracy">
-  <div class="col-md-3 col-accuracy">
-    <div class="form-group">
-      <fieldset>
-        <legend>
-          <span>How accurate is the value given by the caller?</span>
-        </legend>
-        <div class="radio">
-          <label for="appointment_summary_accuracy_1">
-            <input checked="checked" type="radio" value="exact" name="appointment_summary[accuracy]" id="appointment_summary_accuracy_1" />
-            Exact
-          </label>
-        </div>
-        <div class="radio">
-          <label for="appointment_summary_accuracy_2">
-            <input type="radio" value="approximate" name="appointment_summary[accuracy]" id="appointment_summary_accuracy_2" />
-            Approximate
-          </label>
-        </div>
-        <div class="radio">
-          <label for="appointment_summary_accuracy_3">
-            <input type="radio" value="range" name="appointment_summary[accuracy]" id="appointment_summary_accuracy_3" />
-            A range
-        </label>
-        </div>
-        <div class="radio">
-          <label for="appointment_summary_accuracy_4">
-            <input type="radio" value="notprovided" name="appointment_summary[accuracy]" id="appointment_summary_accuracy_4" />
-            No value given
-          </label>
-        </div>
-      </fieldset>
-    </div>
   </div>
 </script>
 

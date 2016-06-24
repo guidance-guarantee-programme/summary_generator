@@ -25,7 +25,19 @@ module Fixtures
         supplementary_ill_health: false,
         supplementary_defined_benefit_pensions: false,
         format_preference: 'standard',
-        appointment_type: 'standard'
+        appointment_type: 'standard',
+        value_of_pension_pots: '27000',
+        upper_value_of_pension_pots: '',
+        pension_pot_accuracy: 'exact',
+        income_in_retirement: 'pension',
+        plans_to_continue_working: false,
+        plan_is_unsure: false,
+        plans_to_leave_inheritance: true,
+        plans_for_flexibility: false,
+        plans_for_security: false,
+        plans_for_lump_sum: false,
+        plans_for_poor_health: false,
+        reference_number: 'CITA-1234'
       )
     end
   }
