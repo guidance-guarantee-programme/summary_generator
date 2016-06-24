@@ -5,7 +5,7 @@ Feature: Appointment type
 
   Scenario Outline: Appointment types
     Given the customer is given the <type> appointment
-    When we generate a summary document
+    When we generate their summary document
     Then it should be the <type> type of summary document
 
     Examples:

@@ -4,11 +4,7 @@ Given(/^the customer doesn't have a defined contribution pension pot$/) do
   end
 end
 
-When(/^they have had a Pension Wise appointment$/) do
-  step('we send them their summary document')
-end
-
-Then(/^we should send them an ineligibility letter$/) do
+Then(/^an ineligibility letter will be generated$/) do
   expect(page).to include_output_document_section('ineligible')
 
   output_document = OutputDocument.new(@appointment_summary)

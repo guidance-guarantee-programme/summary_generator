@@ -27,15 +27,6 @@ Given(/^the customer requires supplementary information about "([^"]*)"$/) do |t
   end
 end
 
-When(/^we (?:generate|send) (?:them their|a) summary document$/) do
-  User.create
-
-  page = AppointmentSummaryPage.new
-  page.load
-  page.fill_in(@appointment_summary)
-  page.submit.click
-end
-
 Then(/^the sections it includes should be \(in order\):$/) do |table|
   sections = table.raw.flatten
 

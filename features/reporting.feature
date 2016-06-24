@@ -5,6 +5,5 @@ Feature: Covering letter
 
   Scenario: Details of the appointment are stored for reporting
     Given a customer has had a Pension Wise appointment
-    When we send them their summary document
-    And I confirm the preview
+    When we generate their summary document
     Then details of the document should be persisted for reporting

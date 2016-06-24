@@ -5,5 +5,5 @@ Feature: Ineligibility letter
 
 Scenario: Customers without a defined contribution pension pot receive an ineligibility letter
   Given the customer doesn't have a defined contribution pension pot
-  When they have had a Pension Wise appointment
-  Then we should send them an ineligibility letter
+  When we preview their summary document
+  Then an ineligibility letter will be generated

@@ -5,7 +5,7 @@ Feature: Summary document contents
 
 Scenario: Generic summary document
   Given we have captured the customer's details in an appointment summary
-  When we send them their summary document
+  When we preview their summary document
   Then the sections it includes should be (in order):
     | covering letter          |
     | getting started          |
@@ -17,7 +17,7 @@ Scenario: Generic summary document
 
 Scenario Outline: Supplementary information can be included
   Given the customer requires supplementary information about "<topic>"
-  When we send them their summary document
+  When we preview their summary document
   Then it should include supplementary information about "<topic>"
 
   Examples:
@@ -29,12 +29,12 @@ Scenario Outline: Supplementary information can be included
 
 Scenario: Records of guidance include the information provided to us by the customer
   Given we have captured the customer's details in an appointment summary
-  When we send them their summary document
+  When we preview their summary document
   Then the summary document should include their details
 
 Scenario: Records of guidance include information about the appointment
   Given we have captured appointment details in an appointment summary
-  When we send a summary document
+  When we preview their summary document
   Then the summary document should include the details of the appointment
 
 @todo

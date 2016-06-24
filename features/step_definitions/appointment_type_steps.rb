@@ -5,10 +5,7 @@ Given(/^the customer is given the (.*?) appointment$/) do |appointment_type|
 end
 
 Then(/^it should be the (.*?) type of summary document$/) do |appointment_type|
-  step 'I have previewed the output document'
-  step 'I confirm the preview'
-
-  info = PDF::Reader.new(StringIO.new(page.source)).info
+  info = PDF::Reader.new(StringIO.new(@page.source)).info
   keywords = info[:Keywords].split(', ')
 
   expect(keywords).to include("appointment-#{appointment_type}")

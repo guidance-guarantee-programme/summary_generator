@@ -5,7 +5,7 @@ Feature: Accessibility
 
   Scenario Outline: Document formats
     Given the customer prefers to receive their summary document in <format> format
-    When we generate a summary document
+    When we preview their summary document
     Then it should be in <format> format
 
     Examples:
