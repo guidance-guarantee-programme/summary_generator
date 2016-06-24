@@ -13,7 +13,6 @@ RSpec.describe OutputDocument do
   let(:postcode) { 'SW1A 2HQ' }
   let(:output_document) { described_class.new(appointment_summary) }
   let(:attendee_name) { "#{title} #{first_name} #{last_name}" }
-  let(:guider_organisation) { 'citizens_advice' }
   let(:guider_name) { 'James' }
   let(:date_of_appointment) { Date.new(2015, 3, 30) }
   let(:params) do
@@ -29,8 +28,7 @@ RSpec.describe OutputDocument do
       country: country,
       postcode: postcode,
       date_of_appointment: date_of_appointment,
-      guider_name: guider_name,
-      guider_organisation: guider_organisation
+      guider_name: guider_name
     }
   end
   let(:appointment_summary) { AppointmentSummary.new(params) }
@@ -85,12 +83,6 @@ RSpec.describe OutputDocument do
 
       it { is_expected.to eq("Mr Joe Bloggs\nHM Treasury\n1 Horse Guards Road\nLondon\nSW1A 2HQ") }
     end
-  end
-
-  describe '#guider_organisation' do
-    subject { output_document.guider_organisation }
-
-    it { is_expected.to eq('Citizens Advice') }
   end
 
   describe '#variant' do
