@@ -10,14 +10,6 @@ class AppointmentSummary < ActiveRecord::Base
                                                 type: :date }
 
   validates :guider_name, presence: true
-  validates :guider_organisation,
-            presence: true,
-            inclusion: {
-              in: %w(citizens_advice),
-              allow_blank: true,
-              message: '%{value} is not a valid organisation'
-            }
-
   validates :address_line_1, presence: true
   validates :town, presence: true
   validates :postcode, presence: true
@@ -39,6 +31,6 @@ class AppointmentSummary < ActiveRecord::Base
   end
 
   def self.editable_column_names
-    column_names - %w(id created_at updated_at user_id)
+    column_names - %w(id created_at updated_at user_id guider_organisation)
   end
 end

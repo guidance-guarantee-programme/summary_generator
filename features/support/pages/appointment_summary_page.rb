@@ -17,7 +17,6 @@ class AppointmentSummaryPage < SitePrism::Page # rubocop:disable ClassLength
   element :postcode, '.t-postcode'
   element :date_of_appointment, '.t-date-of-appointment'
   element :guider_name, '.t-guider-name'
-  element :guider_organisation_citizens_advice, '.t-guider-organisation-citizens-advice'
   element :has_defined_contribution_pension_yes, '.t-has-defined-contribution-pension-yes'
   element :has_defined_contribution_pension_no, '.t-has-defined-contribution-pension-no'
   element :has_defined_contribution_pension_unknown, '.t-has-defined-contribution-pension-unknown'
@@ -86,9 +85,6 @@ class AppointmentSummaryPage < SitePrism::Page # rubocop:disable ClassLength
 
   def fill_in_guider_details(appointment_summary)
     guider_name.set appointment_summary.guider_name
-    case appointment_summary.guider_organisation
-    when 'citizens_advice' then guider_organisation_citizens_advice.set true
-    end
   end
 
   def fill_in_has_defined_contribution_pension(appointment_summary)

@@ -36,10 +36,7 @@ class OutputDocument
   end
 
   def guider_organisation
-    case appointment_summary.guider_organisation
-    when 'citizens_advice' then 'Citizens Advice'
-    else 'Pension Wise'
-    end
+    'Citizens Advice'
   end
 
   def variant

@@ -67,7 +67,6 @@ Then(/^the summary document should include the details of the appointment$/) do
 
   expect(page).to have_content(output_document.appointment_date)
   expect(page).to have_content(output_document.guider_first_name)
-  expect(page).to have_content(output_document.guider_organisation)
 end
 
 Then(/^details of the document should be persisted for reporting$/) do
