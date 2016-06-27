@@ -13,3 +13,5 @@ DatabaseCleaner.strategy = :truncation
 Around do |_scenario, block|
   DatabaseCleaner.cleaning(&block)
 end
+
+World(FactoryGirl::Syntax::Methods)
