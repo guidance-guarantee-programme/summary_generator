@@ -25,6 +25,7 @@
 <table class="table table-striped table-bordered">
   <thead>
     <tr class="table-header">
+      <th scope="col">Organisation</th>
       <th scope="col">Reference</th>
       <th scope="col">Guider</th>
       <th scope="col">Customer</th>
@@ -34,6 +35,7 @@
   <tbody>
     <% @appointment_form.paginated_results.each do |summary| %>
       <tr class="t-appointment">
+        <td><%= summary.user.organisation_slug.upcase %></td>
         <td><%= summary.reference_number %></td>
         <td><%= summary.guider_name %></td>
         <td><%= "#{summary.title} #{summary.first_name} #{summary.last_name}" %></td>
