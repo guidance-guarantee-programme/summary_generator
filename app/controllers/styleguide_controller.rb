@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class StyleguideController < ApplicationController
   def index
   end
@@ -48,7 +49,7 @@ class StyleguideController < ApplicationController
                 filename: 'pensionwise.pdf', type: 'application/pdf',
                 disposition: 'inline'
     else
-      render html: output_document.html.html_safe
+      render html: output_document.html.html_safe # rubocop: disable OutputSafety
     end
   end
 end

@@ -1,5 +1,6 @@
+# frozen_string_literal: true
 class AppointmentSummary < ActiveRecord::Base
-  TITLES = %w(Mr Mrs Miss Ms Mx Dr Reverend)
+  TITLES = %w(Mr Mrs Miss Ms Mx Dr Reverend).freeze
 
   belongs_to :user
 

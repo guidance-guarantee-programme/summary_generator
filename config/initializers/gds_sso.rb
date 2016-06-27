@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 GDS::SSO.config do |config|
   config.user_model = 'User'
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: false
 module Fixtures
   def fixture(name)
     FIXTURES.fetch(name).call
@@ -39,7 +40,7 @@ module Fixtures
         reference_number: 'CITA-1234'
       )
     end
-  }
+  }.freeze
 
   private_constant :FIXTURES
 end

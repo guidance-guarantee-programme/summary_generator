@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Given(/^the customer doesn’t require any supplementary information$/) do
   @appointment_summary = fixture(:populated_appointment_summary).tap do |as|
     as.supplementary_benefits = false
