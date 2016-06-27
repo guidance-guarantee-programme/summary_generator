@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Then(/^it should include a covering letter$/) do
   expect(page).to include_output_document_section('covering letter')
 

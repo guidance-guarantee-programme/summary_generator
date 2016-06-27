@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class RecordOfGuidancePreviewPage < SitePrism::Page
   set_url_matcher %r{/appointment_summaries/preview}
 

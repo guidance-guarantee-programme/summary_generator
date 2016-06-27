@@ -1,9 +1,11 @@
 AllCops:
-  RunRailsCops: true
   Exclude:
-    - 'bin/**/*'
+    - 'bin/*'
     - 'db/**/*'
     - 'vendor/**/*'
+
+Rails:
+  Enabled: true
 
 Documentation:
   Enabled: false
