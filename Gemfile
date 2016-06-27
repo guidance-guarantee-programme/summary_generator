@@ -7,12 +7,14 @@ ruby IO.read('.ruby-version').strip
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 gem 'autoprefixer-rails'
+gem 'bootstrap-kaminari-views'
 gem 'bugsnag'
 gem 'foreman'
 gem 'gaffe'
 gem 'gds-sso'
 gem 'govuk_admin_template'
 gem 'jc-validates_timeliness'
+gem 'kaminari'
 gem 'meta-tags'
 gem 'newrelic_rpm'
 gem 'output-templates', '~> 4.0', github: 'guidance-guarantee-programme/output-templates'
@@ -27,6 +29,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'factory_girl_rails'
   gem 'launchy'
   gem 'pry-rails'
   gem 'rspec-rails'
