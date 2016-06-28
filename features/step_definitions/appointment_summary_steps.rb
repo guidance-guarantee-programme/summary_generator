@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-Given(/^I am logged in as a Pension Wise Administrator$/) do
-  create(:user, :pensionwise_admin)
+Given(/^I am logged in as a Pension Wise analyst/) do
+  create(:user, :analyst)
 end
 
 Given(/^there are existing Appointment Summaries$/) do

@@ -1,10 +1,10 @@
 Feature: Appointment Summary Browser
-  As a Pension Wise Administrator
+  As a Pension Wise analyst
   I want to browse Appointment Summaries
   So that I can self serve
 
 Scenario: Viewing the Appointment Summaries
-  Given I am logged in as a Pension Wise Administrator
+  Given I am logged in as a Pension Wise analyst
   And there are existing Appointment Summaries
   When I visit the Summary Browser
   Then I am presented with Appointment Summaries
@@ -12,7 +12,7 @@ Scenario: Viewing the Appointment Summaries
   And the date range is displayed
 
 Scenario: Exporting the Appointment Summaries to CSV
-  Given I am logged in as a Pension Wise Administrator
+  Given I am logged in as a Pension Wise analyst
   And there are existing Appointment Summaries
   When I visit the Summary Browser
   And I export the results to CSV
