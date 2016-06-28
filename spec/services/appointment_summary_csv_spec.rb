@@ -13,7 +13,9 @@ RSpec.describe AppointmentSummaryCsv do
         %w(
           id
           date_of_appointment
+          pension_pot_accuracy
           value_of_pension_pots
+          upper_value_of_pension_pots
           guider_name
           reference_number
           address_line_1
@@ -29,17 +31,31 @@ RSpec.describe AppointmentSummaryCsv do
           format_preference
           appointment_type
           has_defined_contribution_pension
+          supplementary_benefits
+          supplementary_debt
+          supplementary_ill_health
+          supplementary_defined_benefit_pensions
+          income_in_retirement
+          plans_to_continue_working
+          plan_is_unsure
+          plans_to_leave_inheritance
+          plans_for_flexibility
+          plans_for_security
+          plans_for_lump_sum
+          plans_for_poor_health
           organisation
         )
       )
     end
 
     it 'generates correctly mapped rows' do
-      expect(subject.last.chomp.split(separator)).to match_array(
+      expect(subject.last.chomp.split(separator)).to eq(
         [
           appointment.to_param,
           appointment.date_of_appointment.to_s,
+          appointment.pension_pot_accuracy.to_s,
           appointment.value_of_pension_pots.to_s,
+          appointment.upper_value_of_pension_pots.to_s,
           appointment.guider_name,
           appointment.reference_number,
           appointment.address_line_1,
@@ -55,6 +71,18 @@ RSpec.describe AppointmentSummaryCsv do
           appointment.format_preference,
           appointment.appointment_type,
           appointment.has_defined_contribution_pension,
+          appointment.supplementary_benefits.to_s,
+          appointment.supplementary_debt.to_s,
+          appointment.supplementary_ill_health.to_s,
+          appointment.supplementary_defined_benefit_pensions.to_s,
+          appointment.income_in_retirement,
+          appointment.plans_to_continue_working.to_s,
+          appointment.plan_is_unsure.to_s,
+          appointment.plans_to_leave_inheritance.to_s,
+          appointment.plans_for_flexibility.to_s,
+          appointment.plans_for_security.to_s,
+          appointment.plans_for_lump_sum.to_s,
+          appointment.plans_for_poor_health.to_s,
           appointment.user.organisation_slug.upcase
         ]
       )
