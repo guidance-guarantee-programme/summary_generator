@@ -23,7 +23,7 @@ module Admin
     end
 
     def authenticate_admin!
-      authorise_user!('pensionwise_admin')
+      authorise_user!('analyst')
     rescue PermissionDeniedException
       redirect_to :root
     end
