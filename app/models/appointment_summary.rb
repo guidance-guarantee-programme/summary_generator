@@ -23,6 +23,7 @@ class AppointmentSummary < ActiveRecord::Base
               allow_blank: true,
               message: '%{value} is not a valid value'
             }
+  validates :pension_pot_accuracy, presence: true, unless: ->(as) { as.has_defined_contribution_pension == 'no' }
 
   validates :format_preference, inclusion: { in: %w(standard large_text) }
   validates :appointment_type, inclusion: { in: %w(standard 50_54) }

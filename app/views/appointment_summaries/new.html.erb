@@ -157,26 +157,26 @@
                 <span>How accurate is the value given by the caller?</span>
               </legend>
               <div class="radio">
-                <label for="appointment_summary_accuracy_1">
-                  <input checked="checked" type="radio" value="exact" name="appointment_summary[pension_pot_accuracy]" id="appointment_summary_accuracy_1" class="t-pension-pot-accuracy-exact" />
+                <label>
+                  <%= f.radio_button :pension_pot_accuracy, :exact %>
                   Exact
                 </label>
               </div>
               <div class="radio">
-                <label for="appointment_summary_accuracy_2">
-                  <input type="radio" value="approximate" name="appointment_summary[pension_pot_accuracy]" id="appointment_summary_accuracy_2" />
+                <label>
+                  <%= f.radio_button :pension_pot_accuracy, :approximate %>
                   Approximate
                 </label>
               </div>
               <div class="radio">
-                <label for="appointment_summary_accuracy_3">
-                  <input type="radio" value="range" name="appointment_summary[pension_pot_accuracy]" id="appointment_summary_accuracy_3" />
+                <label>
+                  <%= f.radio_button :pension_pot_accuracy, :range %>
                   A range
                 </label>
               </div>
               <div class="radio">
-                <label for="appointment_summary_accuracy_4">
-                  <input type="radio" value="notprovided" name="appointment_summary[pension_pot_accuracy]" id="appointment_summary_accuracy_4" />
+                <label>
+                  <%= f.radio_button :pension_pot_accuracy, :notprovided %>
                   No value given
                 </label>
               </div>
