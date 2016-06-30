@@ -9,6 +9,12 @@ Rails.application.load_tasks
 Rake::Task['doc:app'].clear
 
 begin
+  require 'cucumber/rake/task'
+  Cucumber::Rake::Task.new(:default)
+rescue LoadError
+end
+
+begin
   require 'rubocop/rake_task'
   RuboCop::RakeTask.new(:default)
 rescue LoadError
