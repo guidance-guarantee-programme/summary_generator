@@ -44,5 +44,6 @@ FactoryGirl.define do
     value_of_pension_pots 15_000
     format_preference 'standard'
     appointment_type 'standard'
+    pension_pot_accuracy 'exact'
   end
 end
