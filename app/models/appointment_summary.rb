@@ -27,6 +27,7 @@ class AppointmentSummary < ActiveRecord::Base
 
   validates :format_preference, inclusion: { in: %w(standard large_text) }
   validates :appointment_type, inclusion: { in: %w(standard 50_54) }
+  validates :number_of_previous_appointments, inclusion: { in: 0..3 }
 
   def eligible_for_guidance?
     %w(yes unknown).include?(has_defined_contribution_pension)

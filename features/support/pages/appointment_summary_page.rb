@@ -53,6 +53,14 @@ class AppointmentSummaryPage < SitePrism::Page # rubocop:disable ClassLength
                 standard: '.t-appointment-type-standard',
                 appointment_50_54: '.t-appointment-type-50-54'
 
+  radio_buttons :first_appointment, yes: '.t-first-appointment-yes',
+                                    no: '.t-first-appointment-no'
+
+  radio_buttons :number_of_previous_appointments, zero: '.t-number-of-previous-appointments-0',
+                                                  one: '.t-number-of-previous-appointments-1',
+                                                  two: '.t-number-of-previous-appointments-2',
+                                                  three: '.t-number-of-previous-appointments-3'
+
   def fill_in(appointment_summary)
     fill_in_customer_details(appointment_summary)
     fill_in_appointment_audit_details(appointment_summary)
@@ -61,6 +69,7 @@ class AppointmentSummaryPage < SitePrism::Page # rubocop:disable ClassLength
     fill_in_supplementary_information(appointment_summary)
     fill_in_format_preference(appointment_summary)
     fill_in_appointment_type(appointment_summary)
+    fill_in_number_of_previous_appointments(appointment_summary)
     fill_in_pension_pot_details(appointment_summary)
   end
 
@@ -114,6 +123,18 @@ class AppointmentSummaryPage < SitePrism::Page # rubocop:disable ClassLength
     case appointment_summary.appointment_type
     when 'standard' then appointment_type_standard.set true
     when '50_54' then appointment_type_appointment_50_54.set true
+    end
+  end
+
+  def fill_in_number_of_previous_appointments(appointment_summary)
+    field = appointment_summary.number_of_previous_appointments.zero? ? first_appointment_yes : first_appointment_no
+    field.set true
+
+    case appointment_summary.number_of_previous_appointments
+    when 0 then number_of_previous_appointments_zero.set true
+    when 1 then number_of_previous_appointments_one.set true
+    when 2 then number_of_previous_appointments_two.set true
+    when 3 then number_of_previous_appointments_three.set true
     end
   end
 
