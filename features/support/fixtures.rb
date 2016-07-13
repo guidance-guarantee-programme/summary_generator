@@ -37,7 +37,8 @@ module Fixtures
         plans_for_security: false,
         plans_for_lump_sum: false,
         plans_for_poor_health: false,
-        reference_number: 'CITA-1234'
+        reference_number: 'CITA-1234',
+        number_of_previous_appointments: 0
       )
     end
   }.freeze

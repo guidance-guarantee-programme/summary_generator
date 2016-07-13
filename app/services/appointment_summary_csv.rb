@@ -34,6 +34,7 @@ class AppointmentSummaryCsv < CsvGenerator
       plans_for_security
       plans_for_lump_sum
       plans_for_poor_health
+      number_of_previous_appointments
       organisation
     ).freeze
   end

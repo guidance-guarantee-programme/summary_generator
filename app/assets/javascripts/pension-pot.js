@@ -19,6 +19,10 @@
       this.$accuracyInput = $('.js-pot-accuracy-option');
       this.$potSizeInput = $('.js-pot-value');
       this.$potUpperSizeInput = $('.js-upper-pot-value');
+      this.$firstAppointmentInput = $('.js-first-appointment');
+      this.$appointmentCountWrapper = $('.js-previous-appointments');
+      this.$noPreviousAppointmentsInput = $('.js-previous-appointment-0');
+      this.$onePreviousAppointmentInput = $('.js-previous-appointment-1');
     },
 
     bindEvents: function () {
@@ -37,6 +41,10 @@
           $('#errmsg').html('Only use numbers').show().fadeOut('slow');
           return false;
         }
+      });
+
+      this.$firstAppointmentInput.on('change', function () {
+        $.publish('firstAppointmentChange', this.value);
       });
     },
 
@@ -70,14 +78,24 @@
           that.$eligibilityWrapper.fadeIn();
         }
       });
+
+      $.subscribe('firstAppointmentChange', function (e, value) {
+        if (value === 'yes') {
+          that.$noPreviousAppointmentsInput.prop('checked', true);
+          that.$appointmentCountWrapper.fadeOut();
+        } else {
+          that.$appointmentCountWrapper.fadeIn().attr('aria-live', 'polite');
+          if (that.$noPreviousAppointmentsInput.prop('checked')) {
+            that.$onePreviousAppointmentInput.prop('checked', true);
+          }
+        }
+      });
     },
 
     ensureCorrectState: function() {
-      // ensure fields for eligible users are displayed
       this.$eligibilityInput.filter(':checked').trigger('change');
-
-      // ensure correct fields for selected accuracy are displayed
       this.$accuracyInput.filter(':checked').trigger('change');
+      this.$firstAppointmentInput.filter(':checked').trigger('change');
     }
   };
 

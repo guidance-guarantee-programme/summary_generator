@@ -43,6 +43,7 @@ RSpec.describe AppointmentSummaryCsv do
           plans_for_security
           plans_for_lump_sum
           plans_for_poor_health
+          number_of_previous_appointments
           organisation
         )
       )
@@ -83,6 +84,7 @@ RSpec.describe AppointmentSummaryCsv do
           appointment.plans_for_security.to_s,
           appointment.plans_for_lump_sum.to_s,
           appointment.plans_for_poor_health.to_s,
+          appointment.number_of_previous_appointments.to_s,
           appointment.user.organisation_slug.upcase
         ]
       )
