@@ -28,7 +28,7 @@ class AppointmentSummaryPage < SitePrism::Page # rubocop:disable ClassLength
   element :submit, '.t-submit'
   element :value_of_pension_pots, '.t-value-of-pension-pots'
   element :upper_value_of_pension_pots, '.t-upper-value-of-pension-pots'
-  element :value_of_pension_pots_is_approximate, '.t-value-of-pension-pots-is-approximate'
+  element :count_of_pension_pots, '.t-count-of-pension-pots'
   element :income_in_retirement, '.t-income-in-retirement'
   element :plans_to_continue_working, '.t-plans-to-continue-working'
   element :plan_is_unsure, '.t-plan-is-unsure'
@@ -141,6 +141,7 @@ class AppointmentSummaryPage < SitePrism::Page # rubocop:disable ClassLength
   def fill_in_pension_pot_details(appointment_summary) # rubocop:disable AbcSize
     value_of_pension_pots.set(appointment_summary.value_of_pension_pots)
     upper_value_of_pension_pots.set(appointment_summary.upper_value_of_pension_pots)
+    count_of_pension_pots.set appointment_summary.count_of_pension_pots
     send("pension_pot_accuracy_#{appointment_summary.pension_pot_accuracy}").set true
     send("income_in_retirement_#{appointment_summary.income_in_retirement}").set true
     plans_to_continue_working.set appointment_summary.plans_to_continue_working

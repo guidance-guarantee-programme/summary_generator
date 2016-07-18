@@ -38,7 +38,8 @@ module Fixtures
         plans_for_lump_sum: false,
         plans_for_poor_health: false,
         reference_number: 'CITA-1234',
-        number_of_previous_appointments: 0
+        number_of_previous_appointments: 0,
+        count_of_pension_pots: 1
       )
     end
   }.freeze

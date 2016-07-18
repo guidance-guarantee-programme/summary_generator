@@ -5,6 +5,7 @@ class AppointmentSummaryCsv < CsvGenerator
       id
       date_of_appointment
       pension_pot_accuracy
+      count_of_pension_pots
       value_of_pension_pots
       upper_value_of_pension_pots
       guider_name
