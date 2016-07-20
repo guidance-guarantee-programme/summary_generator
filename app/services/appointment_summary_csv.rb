@@ -5,6 +5,7 @@ class AppointmentSummaryCsv < CsvGenerator
       id
       date_of_appointment
       pension_pot_accuracy
+      count_of_pension_pots
       value_of_pension_pots
       upper_value_of_pension_pots
       guider_name
@@ -34,6 +35,7 @@ class AppointmentSummaryCsv < CsvGenerator
       plans_for_security
       plans_for_lump_sum
       plans_for_poor_health
+      number_of_previous_appointments
       organisation
     ).freeze
   end

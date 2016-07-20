@@ -36,6 +36,7 @@ RSpec.describe AppointmentSummary, type: :model do
   it { is_expected.to validate_presence_of(:country) }
   it { is_expected.to validate_inclusion_of(:country).in_array(Countries.all) }
   it { is_expected.to validate_presence_of(:postcode) }
+  it { is_expected.to validate_inclusion_of(:number_of_previous_appointments).in_range(0..3) }
 
   describe '#country' do
     it "has a default value of #{Countries.uk}" do

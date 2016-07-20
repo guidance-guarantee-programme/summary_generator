@@ -9,11 +9,12 @@ RSpec.describe AppointmentSummaryCsv do
 
   describe '#csv' do
     it 'generates headings' do
-      expect(subject.first.chomp.split(separator)).to match_array(
+      expect(subject.first.chomp.split(separator)).to eq(
         %w(
           id
           date_of_appointment
           pension_pot_accuracy
+          count_of_pension_pots
           value_of_pension_pots
           upper_value_of_pension_pots
           guider_name
@@ -43,6 +44,7 @@ RSpec.describe AppointmentSummaryCsv do
           plans_for_security
           plans_for_lump_sum
           plans_for_poor_health
+          number_of_previous_appointments
           organisation
         )
       )
@@ -54,6 +56,7 @@ RSpec.describe AppointmentSummaryCsv do
           appointment.to_param,
           appointment.date_of_appointment.to_s,
           appointment.pension_pot_accuracy.to_s,
+          appointment.count_of_pension_pots.to_s,
           appointment.value_of_pension_pots.to_s,
           appointment.upper_value_of_pension_pots.to_s,
           appointment.guider_name,
@@ -83,6 +86,7 @@ RSpec.describe AppointmentSummaryCsv do
           appointment.plans_for_security.to_s,
           appointment.plans_for_lump_sum.to_s,
           appointment.plans_for_poor_health.to_s,
+          appointment.number_of_previous_appointments.to_s,
           appointment.user.organisation_slug.upcase
         ]
       )
