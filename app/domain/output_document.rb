@@ -16,13 +16,17 @@ class OutputDocument
   end
 
   def attendee_name
+    "#{appointment_summary.title} #{appointment_summary.last_name}".squish
+  end
+
+  def attendee_full_name
     "#{appointment_summary.title} #{appointment_summary.first_name} #{appointment_summary.last_name}".squish
   end
 
   def attendee_address
     attendee_country = Countries.uk?(self.attendee_country) ? nil : self.attendee_country
 
-    [attendee_name,
+    [attendee_full_name,
      attendee_address_line_1,
      attendee_address_line_2,
      attendee_address_line_3,
@@ -36,10 +40,6 @@ class OutputDocument
     appointment_summary.date_of_appointment.to_s(:gov_uk)
   end
 
-  def guider_organisation
-    'Citizens Advice'
-  end
-
   def variant
     if appointment_summary.eligible_for_guidance?
       'base'
@@ -48,9 +48,16 @@ class OutputDocument
     end
   end
 
+  def envelope_class
+    'l-envelope--cab'
+  end
+
+  def supplementary_pension_transfers
+    false # placeholder until pension transfers is live
+  end
+
   def lead
-    "You recently had a Pension Wise guidance appointment with #{guider_first_name} " \
-      "from #{guider_organisation} on #{appointment_date}."
+    "You recently had a Pension Wise guidance appointment with #{guider_first_name} on #{appointment_date}."
   end
 
   def guider_first_name

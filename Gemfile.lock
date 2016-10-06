@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/guidance-guarantee-programme/output-templates.git
-  revision: e82915fef34d359c731a0d7628a9eeb270b4e901
+  revision: 2677a9516f01de1aa6364153666f9cb5f66cb74e
   specs:
-    output-templates (4.0.0)
+    output-templates (4.4.0)
       actionview
       sass
 
@@ -323,7 +323,7 @@ DEPENDENCIES
   launchy
   meta-tags
   newrelic_rpm
-  output-templates (~> 4.0)!
+  output-templates (~> 4.4.0)!
   pdf-inspector
   pg
   plek
@@ -345,5 +345,8 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
 
+RUBY VERSION
+   ruby 2.3.0p0
+
 BUNDLED WITH
-   1.11.2
+   1.12.5

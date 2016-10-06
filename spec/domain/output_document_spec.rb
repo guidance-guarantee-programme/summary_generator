@@ -13,7 +13,7 @@ RSpec.describe OutputDocument do
   let(:country) { 'United Kingdom' }
   let(:postcode) { 'SW1A 2HQ' }
   let(:output_document) { described_class.new(appointment_summary) }
-  let(:attendee_name) { "#{title} #{first_name} #{last_name}" }
+  let(:attendee_name) { "#{title} #{last_name}" }
   let(:guider_name) { 'James' }
   let(:date_of_appointment) { Date.new(2015, 3, 30) }
   let(:params) do
@@ -111,8 +111,7 @@ RSpec.describe OutputDocument do
 
     it do
       is_expected.to eq(
-        'You recently had a Pension Wise guidance appointment with James ' \
-        'from Citizens Advice on 30 March 2015.'
+        'You recently had a Pension Wise guidance appointment with James on 30 March 2015.'
       )
     end
   end
