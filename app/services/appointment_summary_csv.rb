@@ -27,7 +27,6 @@ class AppointmentSummaryCsv < CsvGenerator
       supplementary_debt
       supplementary_ill_health
       supplementary_defined_benefit_pensions
-      income_in_retirement
       plans_to_continue_working
       plan_is_unsure
       plans_to_leave_inheritance
@@ -36,6 +35,15 @@ class AppointmentSummaryCsv < CsvGenerator
       plans_for_lump_sum
       plans_for_poor_health
       number_of_previous_appointments
+      retirement_income_other_state_benefits
+      retirement_income_employment
+      retirement_income_partner
+      retirement_income_interest_or_savings
+      retirement_income_property
+      retirement_income_business
+      retirement_income_inheritance
+      retirement_income_other_income
+      retirement_income_unspecified
       organisation
     ).freeze
   end

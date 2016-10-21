@@ -36,7 +36,6 @@ RSpec.describe AppointmentSummaryCsv do
           supplementary_debt
           supplementary_ill_health
           supplementary_defined_benefit_pensions
-          income_in_retirement
           plans_to_continue_working
           plan_is_unsure
           plans_to_leave_inheritance
@@ -45,6 +44,15 @@ RSpec.describe AppointmentSummaryCsv do
           plans_for_lump_sum
           plans_for_poor_health
           number_of_previous_appointments
+          retirement_income_other_state_benefits
+          retirement_income_employment
+          retirement_income_partner
+          retirement_income_interest_or_savings
+          retirement_income_property
+          retirement_income_business
+          retirement_income_inheritance
+          retirement_income_other_income
+          retirement_income_unspecified
           organisation
         )
       )
@@ -78,7 +86,6 @@ RSpec.describe AppointmentSummaryCsv do
           appointment.supplementary_debt.to_s,
           appointment.supplementary_ill_health.to_s,
           appointment.supplementary_defined_benefit_pensions.to_s,
-          appointment.income_in_retirement,
           appointment.plans_to_continue_working.to_s,
           appointment.plan_is_unsure.to_s,
           appointment.plans_to_leave_inheritance.to_s,
@@ -87,6 +94,15 @@ RSpec.describe AppointmentSummaryCsv do
           appointment.plans_for_lump_sum.to_s,
           appointment.plans_for_poor_health.to_s,
           appointment.number_of_previous_appointments.to_s,
+          appointment.retirement_income_other_state_benefits.to_s,
+          appointment.retirement_income_employment.to_s,
+          appointment.retirement_income_partner.to_s,
+          appointment.retirement_income_interest_or_savings.to_s,
+          appointment.retirement_income_property.to_s,
+          appointment.retirement_income_business.to_s,
+          appointment.retirement_income_inheritance.to_s,
+          appointment.retirement_income_other_income.to_s,
+          appointment.retirement_income_unspecified.to_s,
           appointment.user.organisation_slug.upcase
         ]
       )

@@ -29,7 +29,6 @@ module Fixtures
         value_of_pension_pots: '27000',
         upper_value_of_pension_pots: '',
         pension_pot_accuracy: 'exact',
-        income_in_retirement: 'pension',
         plans_to_continue_working: false,
         plan_is_unsure: false,
         plans_to_leave_inheritance: true,
@@ -39,7 +38,16 @@ module Fixtures
         plans_for_poor_health: false,
         reference_number: 'CITA-1234',
         number_of_previous_appointments: 0,
-        count_of_pension_pots: 1
+        count_of_pension_pots: 1,
+        retirement_income_other_state_benefits: false,
+        retirement_income_employment: false,
+        retirement_income_partner: false,
+        retirement_income_interest_or_savings: false,
+        retirement_income_property: false,
+        retirement_income_business: false,
+        retirement_income_inheritance: false,
+        retirement_income_other_income: false,
+        retirement_income_unspecified: false
       )
     end
   }.freeze

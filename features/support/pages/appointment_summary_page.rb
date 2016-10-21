@@ -29,7 +29,6 @@ class AppointmentSummaryPage < SitePrism::Page # rubocop:disable ClassLength
   element :value_of_pension_pots, '.t-value-of-pension-pots'
   element :upper_value_of_pension_pots, '.t-upper-value-of-pension-pots'
   element :count_of_pension_pots, '.t-count-of-pension-pots'
-  element :income_in_retirement, '.t-income-in-retirement'
   element :plans_to_continue_working, '.t-plans-to-continue-working'
   element :plan_is_unsure, '.t-plan-is-unsure'
   element :plans_to_leave_inheritance, '.t-plans-to-leave-inheritance'
@@ -143,7 +142,6 @@ class AppointmentSummaryPage < SitePrism::Page # rubocop:disable ClassLength
     upper_value_of_pension_pots.set(appointment_summary.upper_value_of_pension_pots)
     count_of_pension_pots.set appointment_summary.count_of_pension_pots
     send("pension_pot_accuracy_#{appointment_summary.pension_pot_accuracy}").set true
-    send("income_in_retirement_#{appointment_summary.income_in_retirement}").set true
     plans_to_continue_working.set appointment_summary.plans_to_continue_working
     plan_is_unsure.set appointment_summary.plan_is_unsure
     plans_to_leave_inheritance.set appointment_summary.plans_to_leave_inheritance

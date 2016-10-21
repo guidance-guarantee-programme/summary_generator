@@ -4,7 +4,7 @@ class OutputDocument
 
   attr_accessor :appointment_summary
 
-  delegate :id, :format_preference, :appointment_type, :income_in_retirement, :supplementary_benefits,
+  delegate :id, :format_preference, :appointment_type, :supplementary_benefits,
            :supplementary_debt, :supplementary_ill_health, :supplementary_defined_benefit_pensions,
            to: :appointment_summary
 
