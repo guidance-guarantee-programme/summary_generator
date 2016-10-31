@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718131146) do
+ActiveRecord::Schema.define(version: 20161017142943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 20160718131146) do
     t.string   "reference_number"
     t.integer  "number_of_previous_appointments",                  default: 0,                null: false
     t.integer  "count_of_pension_pots"
+    t.boolean  "retirement_income_other_state_benefits",           default: false,            null: false
+    t.boolean  "retirement_income_employment",                     default: false,            null: false
+    t.boolean  "retirement_income_partner",                        default: false,            null: false
+    t.boolean  "retirement_income_interest_or_savings",            default: false,            null: false
+    t.boolean  "retirement_income_property",                       default: false,            null: false
+    t.boolean  "retirement_income_business",                       default: false,            null: false
+    t.boolean  "retirement_income_inheritance",                    default: false,            null: false
+    t.boolean  "retirement_income_other_income",                   default: false,            null: false
+    t.boolean  "retirement_income_unspecified",                    default: false,            null: false
   end
 
   add_index "appointment_summaries", ["user_id"], name: "index_appointment_summaries_on_user_id", using: :btree

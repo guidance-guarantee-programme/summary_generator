@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 class AppointmentSummary < ActiveRecord::Base
+  deprecated_columns :income_in_retirement
+
   TITLES = %w(Mr Mrs Miss Ms Mx Dr Reverend).freeze
 
   belongs_to :user
