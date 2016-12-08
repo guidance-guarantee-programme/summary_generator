@@ -6,6 +6,7 @@ class OutputDocument
 
   delegate :id, :format_preference, :appointment_type, :supplementary_benefits,
            :supplementary_debt, :supplementary_ill_health, :supplementary_defined_benefit_pensions,
+           :supplementary_pension_transfers,
            to: :appointment_summary
 
   delegate :address_line_1, :address_line_2, :address_line_3, :town, :county, :postcode, :country,
@@ -50,10 +51,6 @@ class OutputDocument
 
   def envelope_class
     'l-envelope--cab'
-  end
-
-  def supplementary_pension_transfers
-    false # placeholder until pension transfers is live
   end
 
   def lead

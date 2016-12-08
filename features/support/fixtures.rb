@@ -24,6 +24,7 @@ module Fixtures
         supplementary_debt: false,
         supplementary_ill_health: false,
         supplementary_defined_benefit_pensions: false,
+        supplementary_pension_transfers: false,
         format_preference: 'standard',
         appointment_type: 'standard',
         value_of_pension_pots: '27000',

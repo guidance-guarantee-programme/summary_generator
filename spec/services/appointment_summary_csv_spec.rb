@@ -36,6 +36,7 @@ RSpec.describe AppointmentSummaryCsv do
           supplementary_debt
           supplementary_ill_health
           supplementary_defined_benefit_pensions
+          supplementary_pension_transfers
           plans_to_continue_working
           plan_is_unsure
           plans_to_leave_inheritance
@@ -87,6 +88,7 @@ RSpec.describe AppointmentSummaryCsv do
           appointment.supplementary_debt.to_s,
           appointment.supplementary_ill_health.to_s,
           appointment.supplementary_defined_benefit_pensions.to_s,
+          appointment.supplementary_pension_transfers.to_s,
           appointment.plans_to_continue_working.to_s,
           appointment.plan_is_unsure.to_s,
           appointment.plans_to_leave_inheritance.to_s,
