@@ -27,6 +27,7 @@ class AppointmentSummaryCsv < CsvGenerator
       supplementary_debt
       supplementary_ill_health
       supplementary_defined_benefit_pensions
+      supplementary_pension_transfers
       plans_to_continue_working
       plan_is_unsure
       plans_to_leave_inheritance

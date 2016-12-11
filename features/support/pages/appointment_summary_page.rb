@@ -25,6 +25,7 @@ class AppointmentSummaryPage < SitePrism::Page # rubocop:disable ClassLength
   element :supplementary_debt, '.t-supplementary-debt'
   element :supplementary_ill_health, '.t-supplementary-ill-health'
   element :supplementary_defined_benefit_pensions, '.t-supplementary-defined-benefit-pensions'
+  element :supplementary_pension_transfers, '.t-supplementary-pension-transfers'
   element :submit, '.t-submit'
   element :value_of_pension_pots, '.t-value-of-pension-pots'
   element :upper_value_of_pension_pots, '.t-upper-value-of-pension-pots'
@@ -109,6 +110,7 @@ class AppointmentSummaryPage < SitePrism::Page # rubocop:disable ClassLength
     supplementary_debt.set appointment_summary.supplementary_debt
     supplementary_ill_health.set appointment_summary.supplementary_ill_health
     supplementary_defined_benefit_pensions.set appointment_summary.supplementary_defined_benefit_pensions
+    supplementary_pension_transfers.set appointment_summary.supplementary_pension_transfers
   end
 
   def fill_in_format_preference(appointment_summary)

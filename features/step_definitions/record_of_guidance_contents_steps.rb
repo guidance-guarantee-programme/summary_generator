@@ -5,6 +5,7 @@ Given(/^the customer doesn’t require any supplementary information$/) do
     as.supplementary_debt = false
     as.supplementary_ill_health = false
     as.supplementary_defined_benefit_pensions = false
+    as.supplementary_pension_transfers = false
   end
 end
 
@@ -14,6 +15,7 @@ Given(/^the customer requires supplementary information about "([^"]*)"$/) do |t
     as.supplementary_debt = false
     as.supplementary_ill_health = false
     as.supplementary_defined_benefit_pensions = false
+    as.supplementary_pension_transfers = false
   end
 
   case topic
@@ -25,6 +27,8 @@ Given(/^the customer requires supplementary information about "([^"]*)"$/) do |t
     @appointment_summary.supplementary_ill_health = true
   when 'Final salary or career average pensions' then
     @appointment_summary.supplementary_defined_benefit_pensions = true
+  when 'Transfer pension pot'
+    @appointment_summary.supplementary_pension_transfers = true
   end
 end
 
