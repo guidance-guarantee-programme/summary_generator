@@ -5,11 +5,10 @@ RSpec.describe 'Error pages', type: :request do
   describe 'when the resource does not exist' do
     before { User.create }
 
-    specify ' a 404 page is rendered' do
-      get '/non-existent-resource'
-
-      expect(response).to be_not_found
-      expect(response).to render_template(:not_found)
+    specify 'a routing error is raised' do
+      expect do
+        get '/non-existent-resource'
+      end.to raise_error(ActionController::RoutingError)
     end
   end
 end

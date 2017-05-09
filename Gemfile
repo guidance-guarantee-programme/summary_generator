@@ -21,10 +21,10 @@ gem 'newrelic_rpm'
 gem 'output-templates', '~> 4.6.0', github: 'guidance-guarantee-programme/output-templates'
 gem 'pg'
 gem 'plek'
-gem 'princely'
+gem 'princely', github: 'guidance-guarantee-programme/princely', branch: 'remove-alias-method-chain'
 gem 'puma'
-gem 'rails', '~> 4.2.8'
-gem 'rails-i18n', '~> 4.0.0'
+gem 'rails', '~> 5.0.2'
+gem 'rails-i18n', '~> 5.0.4'
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'uglifier', '>= 1.3.0'
 
@@ -35,11 +35,10 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'scss-lint'
-  gem 'web-console', '~> 2.0'
 end
 
 group :development do
-  gem 'rubocop', require: false
+  gem 'rubocop', '~> 0.42.0', require: false
   gem 'spring'
   gem 'spring-commands-cucumber'
   gem 'spring-commands-rspec'
