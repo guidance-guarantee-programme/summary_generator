@@ -6,6 +6,13 @@ GIT
       actionview
       sass
 
+GIT
+  remote: https://github.com/guidance-guarantee-programme/princely.git
+  revision: 9b7170d0350e537da4491958f1977ee1a514d34b
+  branch: remove-alias-method-chain
+  specs:
+    princely (2.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -196,7 +203,6 @@ GEM
     pg (0.18.4)
     plek (1.7.0)
     powerpack (0.1.1)
-    princely (1.4.1)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -340,7 +346,7 @@ DEPENDENCIES
   pdf-inspector
   pg
   plek
-  princely
+  princely!
   pry-rails
   puma
   rails (~> 5.0.2)
