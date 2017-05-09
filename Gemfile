@@ -23,8 +23,8 @@ gem 'pg'
 gem 'plek'
 gem 'princely'
 gem 'puma'
-gem 'rails', '~> 4.2.8'
-gem 'rails-i18n', '~> 4.0.0'
+gem 'rails', '~> 5.0.2'
+gem 'rails-i18n', '~> 5.0.4'
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'uglifier', '>= 1.3.0'
 
@@ -35,7 +35,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'scss-lint'
-  gem 'web-console', '~> 2.0'
 end
 
 group :development do

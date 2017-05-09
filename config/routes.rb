@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get 'output-ineligible', action: 'pages_output_ineligible'
     end
 
-    get '(/:action)'
+    get '/', action: :index
   end
 
   get '/status', to: 'status#show'
