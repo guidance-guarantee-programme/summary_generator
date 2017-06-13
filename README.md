@@ -1,3 +1,5 @@
+# NOTE: This app has been merged and retired - see guidance-guarantee-programme/output instead
+
 # Summary Generator
 
 [![Build Status](https://travis-ci.org/guidance-guarantee-programme/summary_generator.svg?branch=master)](https://travis-ci.org/guidance-guarantee-programme/summary_generator)
